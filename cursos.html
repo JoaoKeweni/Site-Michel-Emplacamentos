@@ -14,7 +14,7 @@
     <style>
         /* === Courses Page Specific Styles === */
         .courses-page-hero {
-            background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary) 50%, var(--color-primary-light) 100%);
+            background: linear-gradient(135deg, rgba(20, 42, 94, 0.85), rgba(30, 60, 138, 0.8));
             padding: 160px 0 100px;
             text-align: center;
             position: relative;
@@ -24,23 +24,12 @@
         .courses-page-hero::before {
             content: '';
             position: absolute;
-            width: 600px;
-            height: 600px;
-            border-radius: 50%;
-            background: rgba(254, 250, 10, 0.06);
-            top: -200px;
-            right: -100px;
-        }
-
-        .courses-page-hero::after {
-            content: '';
-            position: absolute;
-            width: 400px;
-            height: 400px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.04);
-            bottom: -150px;
-            left: -100px;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('assets/images/courses-hero-bg.png') center/cover no-repeat;
+            z-index: -1;
         }
 
         .courses-page-hero h1 {
@@ -59,7 +48,7 @@
 
         .courses-page-hero p {
             font-size: 1.15rem;
-            color: rgba(255, 255, 255, 0.8);
+            color: rgba(255, 255, 255, 0.85);
             max-width: 600px;
             margin: 0 auto;
             position: relative;
@@ -104,121 +93,254 @@
             line-height: 1.8;
         }
 
-        /* Course Cards Grid */
-        .courses-page-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 28px;
+        /* ===== ACCORDION COURSE CARDS ===== */
+        .courses-accordion {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
         }
 
-        .course-page-card {
+        .accordion-card {
             background: var(--color-white);
             border-radius: var(--radius-md);
             overflow: hidden;
             box-shadow: var(--shadow-sm);
             transition: all var(--transition-normal);
-            position: relative;
-            display: flex;
-            flex-direction: column;
         }
 
-        .course-page-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-lg);
+        .accordion-card:hover {
+            box-shadow: var(--shadow-md);
         }
 
-        .course-page-card-top {
-            background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
-            padding: 28px 28px 40px;
-            position: relative;
-        }
-
-        .course-page-card-top::after {
-            content: '';
-            position: absolute;
-            bottom: -1px;
-            left: 0;
-            width: 100%;
-            height: 24px;
-            background: var(--color-white);
-            clip-path: ellipse(55% 100% at 50% 100%);
-        }
-
-        .course-page-card-icon {
-            width: 56px;
-            height: 56px;
-            background: rgba(254, 250, 10, 0.2);
-            border-radius: var(--radius-sm);
+        .accordion-header {
             display: flex;
             align-items: center;
-            justify-content: center;
-            font-size: 1.6rem;
-            margin-bottom: 16px;
+            gap: 0;
+            cursor: pointer;
+            transition: all var(--transition-normal);
+            position: relative;
         }
 
-        .course-page-card-top h3 {
-            font-family: var(--font-heading);
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: var(--color-white);
-            line-height: 1.3;
+        .accordion-image {
+            width: 200px;
+            height: 140px;
+            overflow: hidden;
+            flex-shrink: 0;
         }
 
-        .course-page-card-body {
-            padding: 20px 28px 28px;
+        .accordion-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform var(--transition-slow);
+        }
+
+        .accordion-card:hover .accordion-image img {
+            transform: scale(1.05);
+        }
+
+        .accordion-info {
             flex: 1;
+            padding: 20px 24px;
             display: flex;
-            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
         }
 
-        .course-page-card-body p {
-            color: var(--color-text-light);
-            font-size: 0.93rem;
-            line-height: 1.7;
+        .accordion-info-left {
             flex: 1;
         }
 
-        .course-tag {
-            display: inline-block;
-            background: var(--color-gray-100);
+        .accordion-info h3 {
+            font-family: var(--font-heading);
+            font-size: 1.25rem;
+            font-weight: 700;
             color: var(--color-primary);
-            padding: 4px 12px;
+            margin-bottom: 6px;
+        }
+
+        .accordion-info .short-desc {
+            color: var(--color-text-light);
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .accordion-tags {
+            display: flex;
+            gap: 8px;
+            margin-top: 8px;
+            flex-wrap: wrap;
+        }
+
+        .accordion-tag {
+            display: inline-block;
+            padding: 3px 10px;
             border-radius: var(--radius-full);
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.5px;
-            margin-top: 16px;
-            align-self: flex-start;
         }
 
-        .course-tag.required {
-            background: rgba(254, 250, 10, 0.2);
-            color: var(--color-primary);
-        }
-
-        .course-tag.popular {
+        .accordion-tag.popular {
             background: var(--color-accent);
             color: var(--color-primary);
         }
 
-        .course-page-card .btn {
-            margin-top: 20px;
-            width: 100%;
-            justify-content: center;
-            font-size: 0.93rem;
-            padding: 12px 24px;
+        .accordion-tag.required {
+            background: #ffeaea;
+            color: #c0392b;
         }
 
-        /* Info Box */
-        .course-info-note {
-            font-size: 0.82rem !important;
+        .accordion-tag.default {
+            background: var(--color-gray-100);
+            color: var(--color-primary);
+        }
+
+        .btn-expand {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            background: var(--color-primary);
+            color: var(--color-white);
+            border: none;
+            border-radius: var(--radius-full);
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all var(--transition-normal);
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .btn-expand:hover {
+            background: var(--color-primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .btn-expand .arrow {
+            transition: transform var(--transition-normal);
+            font-size: 0.75rem;
+        }
+
+        .accordion-card.open .btn-expand .arrow {
+            transform: rotate(180deg);
+        }
+
+        .accordion-card.open .btn-expand {
+            background: var(--color-accent);
+            color: var(--color-primary);
+        }
+
+        /* Accordion Body - collapsible */
+        .accordion-body {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .accordion-card.open .accordion-body {
+            max-height: 600px;
+        }
+
+        .accordion-body-inner {
+            padding: 0 32px 32px;
+            border-top: 1px solid var(--color-gray-200);
+            margin: 0 24px;
+            padding-top: 24px;
+        }
+
+        .accordion-detail-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 24px;
+        }
+
+        .detail-block h4 {
+            font-family: var(--font-heading);
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--color-primary);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .detail-block h4 .detail-icon {
+            width: 28px;
+            height: 28px;
+            background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            flex-shrink: 0;
+        }
+
+        .detail-block p {
+            color: var(--color-text-light);
+            font-size: 0.9rem;
+            line-height: 1.7;
+        }
+
+        .detail-block ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .detail-block ul li {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            font-size: 0.88rem;
+            color: var(--color-text-light);
+        }
+
+        .detail-block ul li::before {
+            content: '✓';
+            color: var(--color-primary);
+            font-weight: 700;
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+
+        .detail-note {
             background: var(--color-gray-50);
-            padding: 12px 14px;
-            border-radius: var(--radius-sm);
             border-left: 3px solid var(--color-accent);
+            padding: 12px 16px;
+            border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
             margin-top: 12px;
-            color: var(--color-text) !important;
+            font-size: 0.85rem;
+            color: var(--color-text);
+        }
+
+        .accordion-body-inner .btn-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 20px;
+            padding: 12px 28px;
+            background: var(--color-accent);
+            color: var(--color-primary);
+            border-radius: var(--radius-full);
+            font-weight: 700;
+            font-size: 0.93rem;
+            transition: all var(--transition-normal);
+        }
+
+        .accordion-body-inner .btn-cta:hover {
+            background: var(--color-accent-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-glow);
         }
 
         /* CTA Section */
@@ -250,12 +372,7 @@
             flex-wrap: wrap;
         }
 
-        @media (max-width: 1024px) {
-            .courses-page-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
+        /* Responsive */
         @media (max-width: 768px) {
             .courses-page-hero {
                 padding: 130px 0 70px;
@@ -265,12 +382,31 @@
                 font-size: 2rem;
             }
 
-            .courses-page-grid {
+            .courses-page-content {
+                padding: 60px 0 80px;
+            }
+
+            .accordion-header {
+                flex-direction: column;
+            }
+
+            .accordion-image {
+                width: 100%;
+                height: 180px;
+            }
+
+            .accordion-info {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .accordion-detail-grid {
                 grid-template-columns: 1fr;
             }
 
-            .courses-page-content {
-                padding: 60px 0 80px;
+            .accordion-body-inner {
+                margin: 0 16px;
+                padding: 20px 16px 24px;
             }
 
             .courses-cta h2 {
@@ -330,157 +466,465 @@
             <div class="courses-intro reveal">
                 <p>Oferecemos uma variedade de cursos especializados para motoristas profissionais,
                     transportadores e despachantes. Todos os cursos contam com material didático atualizado
-                    e certificação reconhecida.</p>
+                    e certificação reconhecida. Clique em <strong>"Saiba mais"</strong> para ver detalhes de cada curso.
+                </p>
             </div>
 
-            <div class="courses-page-grid">
+            <div class="courses-accordion">
 
-                <!-- MOPP -->
-                <div class="course-page-card reveal">
-                    <div class="course-page-card-top">
-                        <div class="course-page-card-icon">☣️</div>
-                        <h3>Produtos Perigosos (MOPP)</h3>
-                    </div>
-                    <div class="course-page-card-body">
-                        <p>Curso obrigatório para motoristas que transportam produtos perigosos.
-                            Capacitação em manuseio, legislação, prevenção e procedimentos de emergência
-                            conforme exigência do CONTRAN.</p>
-                        <span class="course-tag popular">Mais Procurado</span>
-                        <a href="index.html#contato" class="btn btn-secondary">Quero me inscrever</a>
-                    </div>
-                </div>
-
-                <!-- Coletivo de Passageiros -->
-                <div class="course-page-card reveal">
-                    <div class="course-page-card-top">
-                        <div class="course-page-card-icon">🚌</div>
-                        <h3>Coletivo de Passageiros</h3>
-                    </div>
-                    <div class="course-page-card-body">
-                        <p>Habilitação para condução de veículos de transporte coletivo de passageiros.
-                            Abrange legislação de trânsito, direção defensiva, primeiros socorros
-                            e relacionamento interpessoal.</p>
-                        <a href="index.html#contato" class="btn btn-secondary">Quero me inscrever</a>
-                    </div>
-                </div>
-
-                <!-- Transporte Emergencial -->
-                <div class="course-page-card reveal">
-                    <div class="course-page-card-top">
-                        <div class="course-page-card-icon">🚑</div>
-                        <h3>Transporte Emergencial</h3>
-                    </div>
-                    <div class="course-page-card-body">
-                        <p>Curso para motoristas de veículos de emergência, como ambulâncias e viaturas.
-                            Treinamento em condução segura em situações de urgência, sinalização
-                            e legislação específica.</p>
-                        <a href="index.html#contato" class="btn btn-secondary">Quero me inscrever</a>
-                    </div>
-                </div>
-
-                <!-- Transporte Escolar -->
-                <div class="course-page-card reveal">
-                    <div class="course-page-card-top">
-                        <div class="course-page-card-icon">🚐</div>
-                        <h3>Transporte Escolar</h3>
-                    </div>
-                    <div class="course-page-card-body">
-                        <p>Capacitação obrigatória para motoristas de transporte escolar.
-                            Inclui legislação, segurança infantil, primeiros socorros
-                            e responsabilidade do condutor.</p>
-                        <a href="index.html#contato" class="btn btn-secondary">Quero me inscrever</a>
-                    </div>
-                </div>
-
-                <!-- Transporte Indivisíveis -->
-                <div class="course-page-card reveal">
-                    <div class="course-page-card-top">
-                        <div class="course-page-card-icon">🏗️</div>
-                        <h3>Transporte de Cargas Indivisíveis</h3>
-                    </div>
-                    <div class="course-page-card-body">
-                        <p>Curso para motoristas que transportam cargas indivisíveis e excedentes.
-                            Abrange sinalização, escolta, legislação de AET
-                            e procedimentos de segurança na via.</p>
-                        <a href="index.html#contato" class="btn btn-secondary">Quero me inscrever</a>
-                    </div>
-                </div>
-
-                <!-- Direção Defensiva -->
-                <div class="course-page-card reveal">
-                    <div class="course-page-card-top">
-                        <div class="course-page-card-icon">🛡️</div>
-                        <h3>Direção Defensiva</h3>
-                    </div>
-                    <div class="course-page-card-body">
-                        <p>Curso de direção defensiva com técnicas para prevenir acidentes,
-                            reconhecer situações de risco e adotar práticas seguras ao volante.
-                            Essencial para todos os motoristas.</p>
-                        <a href="index.html#contato" class="btn btn-secondary">Quero me inscrever</a>
-                    </div>
-                </div>
-
-                <!-- Reciclagem -->
-                <div class="course-page-card reveal">
-                    <div class="course-page-card-top">
-                        <div class="course-page-card-icon">🔄</div>
-                        <h3>Reciclagem</h3>
-                    </div>
-                    <div class="course-page-card-body">
-                        <p>Curso de reciclagem para motoristas que necessitam atualizar
-                            seus conhecimentos conforme exigência do DETRAN.
-                            Conteúdo completo e atualizado.</p>
-                        <div class="course-info-note">
-                            ⚠️ <strong>Obrigatório prova</strong> no DETRAN para conclusão do curso.
+                <!-- 1. MOPP -->
+                <div class="accordion-card reveal">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <div class="accordion-image">
+                            <img src="assets/images/course-mopp.png" alt="Curso MOPP - Produtos Perigosos">
                         </div>
-                        <span class="course-tag required">Prova Obrigatória</span>
-                        <a href="index.html#contato" class="btn btn-secondary">Quero me inscrever</a>
+                        <div class="accordion-info">
+                            <div class="accordion-info-left">
+                                <h3>Produtos Perigosos (MOPP)</h3>
+                                <p class="short-desc">Capacitação obrigatória para transporte de produtos perigosos</p>
+                                <div class="accordion-tags">
+                                    <span class="accordion-tag popular">Mais Procurado</span>
+                                </div>
+                            </div>
+                            <button class="btn-expand">Saiba mais <span class="arrow">▼</span></button>
+                        </div>
+                    </div>
+                    <div class="accordion-body">
+                        <div class="accordion-body-inner">
+                            <div class="accordion-detail-grid">
+                                <div class="detail-block">
+                                    <h4><span class="detail-icon">📋</span> Descrição</h4>
+                                    <p>Curso obrigatório para motoristas que transportam produtos perigosos
+                                        (inflamáveis, corrosivos, tóxicos, explosivos).
+                                        Capacitação em manuseio, legislação, prevenção e procedimentos de emergência
+                                        conforme resolução do CONTRAN.</p>
+                                </div>
+                                <div class="detail-block">
+                                    <h4><span class="detail-icon">📌</span> Requisitos</h4>
+                                    <ul>
+                                        <li>CNH categoria C, D ou E</li>
+                                        <li>Não ter cometido infração grave ou gravíssima nos últimos 12 meses</li>
+                                        <li>Não ser reincidente em infrações médias nos últimos 12 meses</li>
+                                    </ul>
+                                </div>
+                                <div class="detail-block">
+                                    <h4><span class="detail-icon">📄</span> Documentos Necessários</h4>
+                                    <ul>
+                                        <li>CNH original e cópia</li>
+                                        <li>RG e CPF</li>
+                                        <li>Comprovante de residência</li>
+                                        <li>Foto 3x4 recente</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <a href="index.html#contato" class="btn-cta">📞 Quero me inscrever</a>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Motofrete -->
-                <div class="course-page-card reveal">
-                    <div class="course-page-card-top">
-                        <div class="course-page-card-icon">🏍️</div>
-                        <h3>Motofrete</h3>
-                    </div>
-                    <div class="course-page-card-body">
-                        <p>Curso de capacitação para profissionais de motofrete.
-                            Treinamento completo em legislação, segurança e boas práticas
-                            para entregadores e motoboys.</p>
-                        <div class="course-info-note">
-                            ⚠️ Cliente precisa ter <strong>21 anos completos</strong> e estar habilitado há no mínimo
-                            <strong>2 anos</strong>.
-                            Obrigatório prova Detran.
+                <!-- 2. Coletivo de Passageiros -->
+                <div class="accordion-card reveal">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <div class="accordion-image">
+                            <img src="assets/images/course-coletivo.png" alt="Curso Coletivo de Passageiros">
                         </div>
-                        <span class="course-tag required">Requisitos Especiais</span>
-                        <a href="index.html#contato" class="btn btn-secondary">Quero me inscrever</a>
+                        <div class="accordion-info">
+                            <div class="accordion-info-left">
+                                <h3>Coletivo de Passageiros</h3>
+                                <p class="short-desc">Habilitação para condução de veículos de transporte coletivo</p>
+                                <div class="accordion-tags">
+                                    <span class="accordion-tag default">Transporte</span>
+                                </div>
+                            </div>
+                            <button class="btn-expand">Saiba mais <span class="arrow">▼</span></button>
+                        </div>
+                    </div>
+                    <div class="accordion-body">
+                        <div class="accordion-body-inner">
+                            <div class="accordion-detail-grid">
+                                <div class="detail-block">
+                                    <h4><span class="detail-icon">📋</span> Descrição</h4>
+                                    <p>Curso de formação para condutores de veículos de transporte coletivo de
+                                        passageiros.
+                                        Abrange legislação de trânsito, direção defensiva, primeiros socorros,
+                                        relacionamento interpessoal e meio ambiente.</p>
+                                </div>
+                                <div class="detail-block">
+                                    <h4><span class="detail-icon">📌</span> Requisitos</h4>
+                                    <ul>
+                                        <li>CNH categoria D ou E</li>
+                                        <li>Idade mínima de 21 anos</li>
+                                        <li>Exercer atividade remunerada como motorista</li>
+                                        <li>Não ter cometido infração grave nos últimos 12 meses</li>
+                                    </ul>
+                                </div>
+                                <div class="detail-block">
+                                    <h4><span class="detail-icon">📄</span> Documentos Necessários</h4>
+                                    <ul>
+                                        <li>CNH original e cópia</li>
+                                        <li>RG e CPF</li>
+                                        <li>Comprovante de residência</li>
+                                        <li>Foto 3x4 recente</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <a href="index.html#contato" class="btn-cta">📞 Quero me inscrever</a>
+                        </div>
                     </div>
                 </div>
 
-                <!-- NRs -->
-                <div class="course-page-card reveal">
-                    <div class="course-page-card-top">
-                        <div class="course-page-card-icon">⚡</div>
-                        <h3>Cursos NRs 10, 20, 35</h3>
-                    </div>
-                    <div class="course-page-card-body">
-                        <p>Cursos de Normas Regulamentadoras para segurança no trabalho:</p>
-                        <div class="course-features" style="margin: 12px 0;">
-                            <div class="course-feature">
-                                <span class="check" style="color:var(--color-primary);font-weight:700;">✓</span>
-                                <strong>NR 10</strong> — Segurança em instalações elétricas
-                            </div>
-                            <div class="course-feature">
-                                <span class="check" style="color:var(--color-primary);font-weight:700;">✓</span>
-                                <strong>NR 20</strong> — Líquidos combustíveis e inflamáveis
-                            </div>
-                            <div class="course-feature">
-                                <span class="check" style="color:var(--color-primary);font-weight:700;">✓</span>
-                                <strong>NR 35</strong> — Trabalho em altura
-                            </div>
+                <!-- 3. Transporte Emergencial -->
+                <div class="accordion-card reveal">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <div class="accordion-image">
+                            <img src="assets/images/course-emergencial.png" alt="Curso Transporte Emergencial">
                         </div>
-                        <a href="index.html#contato" class="btn btn-secondary">Quero me inscrever</a>
+                        <div class="accordion-info">
+                            <div class="accordion-info-left">
+                                <h3>Transporte Emergencial</h3>
+                                <p class="short-desc">Formação para condutores de veículos de emergência</p>
+                                <div class="accordion-tags">
+                                    <span class="accordion-tag default">Emergência</span>
+                                </div>
+                            </div>
+                            <button class="btn-expand">Saiba mais <span class="arrow">▼</span></button>
+                        </div>
+                    </div>
+                    <div class="accordion-body">
+                        <div class="accordion-body-inner">
+                            <div class="accordion-detail-grid">
+                                <div class="detail-block">
+                                    <h4><span class="detail-icon">📋</span> Descrição</h4>
+                                    <p>Curso para motoristas de veículos de emergência como ambulâncias, viaturas e
+                                        resgate.
+                                        Treinamento em condução segura em situações de urgência, sinalização,
+                                        legislação específica e primeiros socorros.</p>
+                                </div>
+                                <div class="detail-block">
+                                    <h4><span class="detail-icon">📌</span> Requisitos</h4>
+                                    <ul>
+                                        <li>CNH categoria D ou E</li>
+                                        <li>Idade mínima de 21 anos</li>
+                                        <li>Não ter cometido infração grave nos últimos 12 meses</li>
+                                    </ul>
+                                </div>
+                                <div class="detail-block">
+                                    <h4><span class="detail-icon">📄</span> Documentos Necessários</h4>
+                                    <ul>
+                                        <li>CNH original e cópia</li>
+                                        <li>RG e CPF</li>
+                                        <li>Comprovante de residência</li>
+                                        <li>Foto 3x4 recente</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <a href="index.html#contato" class="btn-cta">📞 Quero me inscrever</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. Transporte Escolar -->
+                <div class="accordion-card reveal">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <div class="accordion-image">
+                            <img src="assets/images/course-escolar.png" alt="Curso Transporte Escolar">
+                        </div>
+                        <div class="accordion-info">
+                            <div class="accordion-info-left">
+                                <h3>Transporte Escolar</h3>
+                                <p class="short-desc">Capacitação obrigatória para motoristas de transporte escolar</p>
+                                <div class="accordion-tags">
+                                    <span class="accordion-tag default">Escolar</span>
+                                </div>
+                            </div>
+                            <button class="btn-expand">Saiba mais <span class="arrow">▼</span></button>
+                        </div>
+                    </div>
+                    <div class="accordion-body">
+                        <div class="accordion-body-inner">
+                            <div class="accordion-detail-grid">
+                                <div class="detail-block">
+                                    <h4><span class="detail-icon">📋</span> Descrição</h4>
+                                    <p>Capacitação obrigatória para motoristas de transporte escolar.
+                                        Inclui legislação, segurança infantil, primeiros socorros,
+                                        responsabilidade do condutor e direção defensiva.</p>
+                                </div>
+                                <div class="detail-block">
+                                    <h4><span class="detail-icon">📌</span> Requisitos</h4>
+                                    <ul>
+                                        <li>CNH categoria D ou E</li>
+                                        <li>Idade mínima de 21 anos</li>
+                                        <li>Não ter cometido infração grave ou gravíssima nos últimos 12 meses</li>
+                                        <li>Aprovação em curso de primeiros socorros</li>
+                                    </ul>
+                                </div>
+                                <div class="detail-block">
+                                    <h4><span class="detail-icon">📄</span> Documentos Necessários</h4>
+                                    <ul>
+                                        <li>CNH original e cópia</li>
+                                        <li>RG e CPF</li>
+                                        <li>Certidão negativa criminal</li>
+                                        <li>Comprovante de residência</li>
+                                        <li>Foto 3x4 recente</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <a href="index.html#contato" class="btn-cta">📞 Quero me inscrever</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5. Transporte Indivisíveis -->
+                <div class="accordion-card reveal">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <div class="accordion-image">
+                            <img src="assets/images/course-indivisiveis.png"
+                                alt="Curso Transporte de Cargas Indivisíveis">
+                        </div>
+                        <div class="accordion-info">
+                            <div class="accordion-info-left">
+                                <h3>Transporte de Cargas Indivisíveis</h3>
+                                <p class="short-desc">Formação para transporte de cargas pesadas e excedentes</p>
+                                <div class="accordion-tags">
+                                    <span class="accordion-tag default">Cargas</span>
+                                </div>
+                            </div>
+                            <button class="btn-expand">Saiba mais <span class="arrow">▼</span></button>
+                        </div>
+                    </div>
+                    <div class="accordion-body">
+                        <div class="accordion-body-inner">
+                            <div class="accordion-detail-grid">
+                                <div class="detail-block">
+                                    <h4><span class="detail-icon">📋</span> Descrição</h4>
+                                    <p>Curso para motoristas que transportam cargas indivisíveis e excedentes.
+                                        Abrange sinalização, escolta, legislação de AET
+                                        e procedimentos de segurança na via.</p>
+                                </div>
+                                <div class="detail-block">
+                                    <h4><span class="detail-icon">📌</span> Requisitos</h4>
+                                    <ul>
+                                        <li>CNH categoria C, D ou E</li>
+                                        <li>Experiência em transporte de cargas</li>
+                                        <li>Não ter cometido infração grave nos últimos 12 meses</li>
+                                    </ul>
+                                </div>
+                                <div class="detail-block">
+                                    <h4><span class="detail-icon">📄</span> Documentos Necessários</h4>
+                                    <ul>
+                                        <li>CNH original e cópia</li>
+                                        <li>RG e CPF</li>
+                                        <li>Comprovante de residência</li>
+                                        <li>Foto 3x4 recente</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <a href="index.html#contato" class="btn-cta">📞 Quero me inscrever</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 6. Direção Defensiva -->
+                <div class="accordion-card reveal">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <div class="accordion-image">
+                            <img src="assets/images/course-defensiva.png" alt="Curso Direção Defensiva">
+                        </div>
+                        <div class="accordion-info">
+                            <div class="accordion-info-left">
+                                <h3>Direção Defensiva</h3>
+                                <p class="short-desc">Técnicas de prevenção de acidentes e condução segura</p>
+                                <div class="accordion-tags">
+                                    <span class="accordion-tag popular">Essencial</span>
+                                </div>
+                            </div>
+                            <button class="btn-expand">Saiba mais <span class="arrow">▼</span></button>
+                        </div>
+                    </div>
+                    <div class="accordion-body">
+                        <div class="accordion-body-inner">
+                            <div class="accordion-detail-grid">
+                                <div class="detail-block">
+                                    <h4><span class="detail-icon">📋</span> Descrição</h4>
+                                    <p>Curso de direção defensiva com técnicas para prevenir acidentes,
+                                        reconhecer situações de risco e adotar práticas seguras ao volante.
+                                        Essencial para todos os motoristas profissionais.</p>
+                                </div>
+                                <div class="detail-block">
+                                    <h4><span class="detail-icon">📌</span> Requisitos</h4>
+                                    <ul>
+                                        <li>CNH de qualquer categoria</li>
+                                        <li>Ser maior de 18 anos</li>
+                                    </ul>
+                                </div>
+                                <div class="detail-block">
+                                    <h4><span class="detail-icon">📄</span> Documentos Necessários</h4>
+                                    <ul>
+                                        <li>CNH original e cópia</li>
+                                        <li>RG e CPF</li>
+                                        <li>Comprovante de residência</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <a href="index.html#contato" class="btn-cta">📞 Quero me inscrever</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 7. Reciclagem -->
+                <div class="accordion-card reveal">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <div class="accordion-image">
+                            <img src="assets/images/course-reciclagem.png" alt="Curso Reciclagem">
+                        </div>
+                        <div class="accordion-info">
+                            <div class="accordion-info-left">
+                                <h3>Reciclagem</h3>
+                                <p class="short-desc">Atualização obrigatória de conhecimentos para motoristas</p>
+                                <div class="accordion-tags">
+                                    <span class="accordion-tag required">Prova Obrigatória</span>
+                                </div>
+                            </div>
+                            <button class="btn-expand">Saiba mais <span class="arrow">▼</span></button>
+                        </div>
+                    </div>
+                    <div class="accordion-body">
+                        <div class="accordion-body-inner">
+                            <div class="accordion-detail-grid">
+                                <div class="detail-block">
+                                    <h4><span class="detail-icon">📋</span> Descrição</h4>
+                                    <p>Curso de reciclagem para motoristas que necessitam atualizar
+                                        seus conhecimentos conforme exigência do DETRAN.
+                                        Conteúdo atualizado sobre legislação, direção defensiva e meio ambiente.</p>
+                                </div>
+                                <div class="detail-block">
+                                    <h4><span class="detail-icon">📌</span> Requisitos</h4>
+                                    <ul>
+                                        <li>CNH de qualquer categoria</li>
+                                        <li>Necessidade de reciclagem conforme DETRAN</li>
+                                    </ul>
+                                    <div class="detail-note">
+                                        ⚠️ <strong>Obrigatório prova</strong> no DETRAN para conclusão do curso.
+                                    </div>
+                                </div>
+                                <div class="detail-block">
+                                    <h4><span class="detail-icon">📄</span> Documentos Necessários</h4>
+                                    <ul>
+                                        <li>CNH original e cópia</li>
+                                        <li>RG e CPF</li>
+                                        <li>Comprovante de residência</li>
+                                        <li>Notificação do DETRAN (se houver)</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <a href="index.html#contato" class="btn-cta">📞 Quero me inscrever</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 8. Motofrete -->
+                <div class="accordion-card reveal">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <div class="accordion-image">
+                            <img src="assets/images/course-motofrete.png" alt="Curso Motofrete">
+                        </div>
+                        <div class="accordion-info">
+                            <div class="accordion-info-left">
+                                <h3>Motofrete</h3>
+                                <p class="short-desc">Capacitação para profissionais de entregas por motocicleta</p>
+                                <div class="accordion-tags">
+                                    <span class="accordion-tag required">Requisitos Especiais</span>
+                                </div>
+                            </div>
+                            <button class="btn-expand">Saiba mais <span class="arrow">▼</span></button>
+                        </div>
+                    </div>
+                    <div class="accordion-body">
+                        <div class="accordion-body-inner">
+                            <div class="accordion-detail-grid">
+                                <div class="detail-block">
+                                    <h4><span class="detail-icon">📋</span> Descrição</h4>
+                                    <p>Curso de capacitação para profissionais de motofrete.
+                                        Treinamento completo em legislação, segurança, pilotagem defensiva
+                                        e boas práticas para entregadores e motoboys.</p>
+                                </div>
+                                <div class="detail-block">
+                                    <h4><span class="detail-icon">📌</span> Requisitos</h4>
+                                    <ul>
+                                        <li>CNH categoria A</li>
+                                        <li><strong>Idade mínima de 21 anos</strong></li>
+                                        <li><strong>Habilitado há no mínimo 2 anos</strong></li>
+                                    </ul>
+                                    <div class="detail-note">
+                                        ⚠️ <strong>Obrigatório prova Detran</strong> para conclusão do curso.
+                                    </div>
+                                </div>
+                                <div class="detail-block">
+                                    <h4><span class="detail-icon">📄</span> Documentos Necessários</h4>
+                                    <ul>
+                                        <li>CNH original e cópia (cat. A)</li>
+                                        <li>RG e CPF</li>
+                                        <li>Comprovante de residência</li>
+                                        <li>Foto 3x4 recente</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <a href="index.html#contato" class="btn-cta">📞 Quero me inscrever</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 9. NRs -->
+                <div class="accordion-card reveal">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <div class="accordion-image">
+                            <img src="assets/images/course-nrs.png" alt="Cursos NRs 10, 20, 35">
+                        </div>
+                        <div class="accordion-info">
+                            <div class="accordion-info-left">
+                                <h3>Cursos NRs 10, 20, 35</h3>
+                                <p class="short-desc">Normas Regulamentadoras de segurança no trabalho</p>
+                                <div class="accordion-tags">
+                                    <span class="accordion-tag default">Segurança</span>
+                                </div>
+                            </div>
+                            <button class="btn-expand">Saiba mais <span class="arrow">▼</span></button>
+                        </div>
+                    </div>
+                    <div class="accordion-body">
+                        <div class="accordion-body-inner">
+                            <div class="accordion-detail-grid">
+                                <div class="detail-block">
+                                    <h4><span class="detail-icon">📋</span> Descrição</h4>
+                                    <p>Cursos de Normas Regulamentadoras para segurança no trabalho:</p>
+                                    <ul>
+                                        <li><strong>NR 10</strong> — Segurança em instalações e serviços em eletricidade
+                                        </li>
+                                        <li><strong>NR 20</strong> — Segurança com líquidos combustíveis e inflamáveis
+                                        </li>
+                                        <li><strong>NR 35</strong> — Trabalho em altura</li>
+                                    </ul>
+                                </div>
+                                <div class="detail-block">
+                                    <h4><span class="detail-icon">📌</span> Requisitos</h4>
+                                    <ul>
+                                        <li>Ser maior de 18 anos</li>
+                                        <li>Atestado de saúde ocupacional (ASO)</li>
+                                        <li>Trabalhadores expostos aos riscos da atividade</li>
+                                    </ul>
+                                </div>
+                                <div class="detail-block">
+                                    <h4><span class="detail-icon">📄</span> Documentos Necessários</h4>
+                                    <ul>
+                                        <li>RG e CPF</li>
+                                        <li>Comprovante de residência</li>
+                                        <li>ASO (Atestado de Saúde Ocupacional)</li>
+                                        <li>Registro de empregado (se aplicável)</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <a href="index.html#contato" class="btn-cta">📞 Quero me inscrever</a>
+                        </div>
                     </div>
                 </div>
 
@@ -561,6 +1005,21 @@
     </button>
 
     <script src="script.js"></script>
+    <script>
+        // Accordion toggle for course cards
+        function toggleAccordion(header) {
+            const card = header.closest('.accordion-card');
+            const isOpen = card.classList.contains('open');
+
+            // Close all other cards
+            document.querySelectorAll('.accordion-card.open').forEach(c => {
+                if (c !== card) c.classList.remove('open');
+            });
+
+            // Toggle current card
+            card.classList.toggle('open');
+        }
+    </script>
 </body>
 
 </html>
