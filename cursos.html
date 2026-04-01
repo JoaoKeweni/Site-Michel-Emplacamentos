@@ -1196,6 +1196,18 @@
             // Toggle current card
             card.classList.toggle('open');
         }
+
+        // Set WhatsApp links for each course CTA
+        document.querySelectorAll('.accordion-card').forEach(card => {
+            const courseName = card.querySelector('h3').textContent.trim();
+            const cta = card.querySelector('.btn-cta');
+            if (cta) {
+                const message = encodeURIComponent(`Quero me matricular no curso *${courseName}*`);
+                cta.href = `https://wa.me/5579998128089?text=${message}`;
+                cta.target = '_blank';
+                cta.rel = 'noopener';
+            }
+        });
     </script>
 </body>
 
