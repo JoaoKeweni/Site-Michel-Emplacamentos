@@ -273,15 +273,21 @@
         }
 
         .detail-block h4 .detail-icon {
-            width: 28px;
-            height: 28px;
+            width: 32px;
+            height: 32px;
             background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
-            border-radius: 6px;
+            border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 0.8rem;
             flex-shrink: 0;
+            padding: 6px;
+        }
+
+        .detail-block h4 .detail-icon svg {
+            width: 100%;
+            height: 100%;
+            fill: white;
         }
 
         .detail-block p {
@@ -493,14 +499,25 @@
                         <div class="accordion-body-inner">
                             <div class="accordion-detail-grid">
                                 <div class="detail-block">
-                                    <h4><span class="detail-icon">📋</span> Descrição</h4>
+                                    <h4><span class="detail-icon"><svg viewBox="0 0 24 24">
+                                                <path
+                                                    d="M20 6h-8l-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-1 12H5V9h14v9z" />
+                                                <rect x="7" y="11" width="6" height="1.5" rx=".5" />
+                                                <rect x="7" y="13.5" width="4" height="1.5" rx=".5" />
+                                            </svg></span> Descrição</h4>
                                     <p>Curso obrigatório para motoristas que transportam produtos perigosos
                                         (inflamáveis, corrosivos, tóxicos, explosivos).
                                         Capacitação em manuseio, legislação, prevenção e procedimentos de emergência
                                         conforme resolução do CONTRAN.</p>
                                 </div>
                                 <div class="detail-block">
-                                    <h4><span class="detail-icon">📌</span> Requisitos</h4>
+                                    <h4><span class="detail-icon"><svg viewBox="0 0 24 24">
+                                                <path
+                                                    d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm-1 2l5 5h-5V4zM6 20V4h5v7h7v9H6z" />
+                                                <rect x="8" y="13" width="8" height="1.2" />
+                                                <rect x="8" y="15.5" width="8" height="1.2" />
+                                                <rect x="8" y="10.5" width="5" height="1.2" />
+                                            </svg></span> Requisitos</h4>
                                     <ul>
                                         <li>CNH categoria C, D ou E</li>
                                         <li>Não ter cometido infração grave ou gravíssima nos últimos 12 meses</li>
@@ -508,7 +525,11 @@
                                     </ul>
                                 </div>
                                 <div class="detail-block">
-                                    <h4><span class="detail-icon">📄</span> Documentos Necessários</h4>
+                                    <h4><span class="detail-icon"><svg viewBox="0 0 24 24">
+                                                <path
+                                                    d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zM6 20V4h7v5h5v11H6z" />
+                                                <path d="M8 15.5h8v1.3H8zM8 12.8h8v1.3H8zM8 10h5v1.3H8z" />
+                                            </svg></span> Documentos Necessários</h4>
                                     <ul>
                                         <li>CNH original e cópia</li>
                                         <li>RG e CPF</li>
@@ -517,7 +538,11 @@
                                     </ul>
                                 </div>
                             </div>
-                            <a href="index.html#contato" class="btn-cta">📞 Quero me inscrever</a>
+                            <a href="index.html#contato" class="btn-cta"><svg viewBox="0 0 24 24" width="16" height="16"
+                                    style="fill: var(--color-primary); vertical-align: middle;">
+                                    <path
+                                        d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.46.57 3.58a1 1 0 01-.24 1.01l-2.21 2.2z" />
+                                </svg> Quero me inscrever</a>
                         </div>
                     </div>
                 </div>
@@ -543,14 +568,25 @@
                         <div class="accordion-body-inner">
                             <div class="accordion-detail-grid">
                                 <div class="detail-block">
-                                    <h4><span class="detail-icon">📋</span> Descrição</h4>
+                                    <h4><span class="detail-icon"><svg viewBox="0 0 24 24">
+                                                <path
+                                                    d="M20 6h-8l-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-1 12H5V9h14v9z" />
+                                                <rect x="7" y="11" width="6" height="1.5" rx=".5" />
+                                                <rect x="7" y="13.5" width="4" height="1.5" rx=".5" />
+                                            </svg></span> Descrição</h4>
                                     <p>Curso de formação para condutores de veículos de transporte coletivo de
                                         passageiros.
                                         Abrange legislação de trânsito, direção defensiva, primeiros socorros,
                                         relacionamento interpessoal e meio ambiente.</p>
                                 </div>
                                 <div class="detail-block">
-                                    <h4><span class="detail-icon">📌</span> Requisitos</h4>
+                                    <h4><span class="detail-icon"><svg viewBox="0 0 24 24">
+                                                <path
+                                                    d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm-1 2l5 5h-5V4zM6 20V4h5v7h7v9H6z" />
+                                                <rect x="8" y="13" width="8" height="1.2" />
+                                                <rect x="8" y="15.5" width="8" height="1.2" />
+                                                <rect x="8" y="10.5" width="5" height="1.2" />
+                                            </svg></span> Requisitos</h4>
                                     <ul>
                                         <li>CNH categoria D ou E</li>
                                         <li>Idade mínima de 21 anos</li>
@@ -559,7 +595,11 @@
                                     </ul>
                                 </div>
                                 <div class="detail-block">
-                                    <h4><span class="detail-icon">📄</span> Documentos Necessários</h4>
+                                    <h4><span class="detail-icon"><svg viewBox="0 0 24 24">
+                                                <path
+                                                    d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zM6 20V4h7v5h5v11H6z" />
+                                                <path d="M8 15.5h8v1.3H8zM8 12.8h8v1.3H8zM8 10h5v1.3H8z" />
+                                            </svg></span> Documentos Necessários</h4>
                                     <ul>
                                         <li>CNH original e cópia</li>
                                         <li>RG e CPF</li>
@@ -568,7 +608,11 @@
                                     </ul>
                                 </div>
                             </div>
-                            <a href="index.html#contato" class="btn-cta">📞 Quero me inscrever</a>
+                            <a href="index.html#contato" class="btn-cta"><svg viewBox="0 0 24 24" width="16" height="16"
+                                    style="fill: var(--color-primary); vertical-align: middle;">
+                                    <path
+                                        d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.46.57 3.58a1 1 0 01-.24 1.01l-2.21 2.2z" />
+                                </svg> Quero me inscrever</a>
                         </div>
                     </div>
                 </div>
@@ -594,14 +638,25 @@
                         <div class="accordion-body-inner">
                             <div class="accordion-detail-grid">
                                 <div class="detail-block">
-                                    <h4><span class="detail-icon">📋</span> Descrição</h4>
+                                    <h4><span class="detail-icon"><svg viewBox="0 0 24 24">
+                                                <path
+                                                    d="M20 6h-8l-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-1 12H5V9h14v9z" />
+                                                <rect x="7" y="11" width="6" height="1.5" rx=".5" />
+                                                <rect x="7" y="13.5" width="4" height="1.5" rx=".5" />
+                                            </svg></span> Descrição</h4>
                                     <p>Curso para motoristas de veículos de emergência como ambulâncias, viaturas e
                                         resgate.
                                         Treinamento em condução segura em situações de urgência, sinalização,
                                         legislação específica e primeiros socorros.</p>
                                 </div>
                                 <div class="detail-block">
-                                    <h4><span class="detail-icon">📌</span> Requisitos</h4>
+                                    <h4><span class="detail-icon"><svg viewBox="0 0 24 24">
+                                                <path
+                                                    d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm-1 2l5 5h-5V4zM6 20V4h5v7h7v9H6z" />
+                                                <rect x="8" y="13" width="8" height="1.2" />
+                                                <rect x="8" y="15.5" width="8" height="1.2" />
+                                                <rect x="8" y="10.5" width="5" height="1.2" />
+                                            </svg></span> Requisitos</h4>
                                     <ul>
                                         <li>CNH categoria D ou E</li>
                                         <li>Idade mínima de 21 anos</li>
@@ -609,7 +664,11 @@
                                     </ul>
                                 </div>
                                 <div class="detail-block">
-                                    <h4><span class="detail-icon">📄</span> Documentos Necessários</h4>
+                                    <h4><span class="detail-icon"><svg viewBox="0 0 24 24">
+                                                <path
+                                                    d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zM6 20V4h7v5h5v11H6z" />
+                                                <path d="M8 15.5h8v1.3H8zM8 12.8h8v1.3H8zM8 10h5v1.3H8z" />
+                                            </svg></span> Documentos Necessários</h4>
                                     <ul>
                                         <li>CNH original e cópia</li>
                                         <li>RG e CPF</li>
@@ -618,7 +677,11 @@
                                     </ul>
                                 </div>
                             </div>
-                            <a href="index.html#contato" class="btn-cta">📞 Quero me inscrever</a>
+                            <a href="index.html#contato" class="btn-cta"><svg viewBox="0 0 24 24" width="16" height="16"
+                                    style="fill: var(--color-primary); vertical-align: middle;">
+                                    <path
+                                        d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.46.57 3.58a1 1 0 01-.24 1.01l-2.21 2.2z" />
+                                </svg> Quero me inscrever</a>
                         </div>
                     </div>
                 </div>
@@ -644,13 +707,24 @@
                         <div class="accordion-body-inner">
                             <div class="accordion-detail-grid">
                                 <div class="detail-block">
-                                    <h4><span class="detail-icon">📋</span> Descrição</h4>
+                                    <h4><span class="detail-icon"><svg viewBox="0 0 24 24">
+                                                <path
+                                                    d="M20 6h-8l-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-1 12H5V9h14v9z" />
+                                                <rect x="7" y="11" width="6" height="1.5" rx=".5" />
+                                                <rect x="7" y="13.5" width="4" height="1.5" rx=".5" />
+                                            </svg></span> Descrição</h4>
                                     <p>Capacitação obrigatória para motoristas de transporte escolar.
                                         Inclui legislação, segurança infantil, primeiros socorros,
                                         responsabilidade do condutor e direção defensiva.</p>
                                 </div>
                                 <div class="detail-block">
-                                    <h4><span class="detail-icon">📌</span> Requisitos</h4>
+                                    <h4><span class="detail-icon"><svg viewBox="0 0 24 24">
+                                                <path
+                                                    d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm-1 2l5 5h-5V4zM6 20V4h5v7h7v9H6z" />
+                                                <rect x="8" y="13" width="8" height="1.2" />
+                                                <rect x="8" y="15.5" width="8" height="1.2" />
+                                                <rect x="8" y="10.5" width="5" height="1.2" />
+                                            </svg></span> Requisitos</h4>
                                     <ul>
                                         <li>CNH categoria D ou E</li>
                                         <li>Idade mínima de 21 anos</li>
@@ -659,7 +733,11 @@
                                     </ul>
                                 </div>
                                 <div class="detail-block">
-                                    <h4><span class="detail-icon">📄</span> Documentos Necessários</h4>
+                                    <h4><span class="detail-icon"><svg viewBox="0 0 24 24">
+                                                <path
+                                                    d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zM6 20V4h7v5h5v11H6z" />
+                                                <path d="M8 15.5h8v1.3H8zM8 12.8h8v1.3H8zM8 10h5v1.3H8z" />
+                                            </svg></span> Documentos Necessários</h4>
                                     <ul>
                                         <li>CNH original e cópia</li>
                                         <li>RG e CPF</li>
@@ -669,7 +747,11 @@
                                     </ul>
                                 </div>
                             </div>
-                            <a href="index.html#contato" class="btn-cta">📞 Quero me inscrever</a>
+                            <a href="index.html#contato" class="btn-cta"><svg viewBox="0 0 24 24" width="16" height="16"
+                                    style="fill: var(--color-primary); vertical-align: middle;">
+                                    <path
+                                        d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.46.57 3.58a1 1 0 01-.24 1.01l-2.21 2.2z" />
+                                </svg> Quero me inscrever</a>
                         </div>
                     </div>
                 </div>
@@ -696,13 +778,24 @@
                         <div class="accordion-body-inner">
                             <div class="accordion-detail-grid">
                                 <div class="detail-block">
-                                    <h4><span class="detail-icon">📋</span> Descrição</h4>
+                                    <h4><span class="detail-icon"><svg viewBox="0 0 24 24">
+                                                <path
+                                                    d="M20 6h-8l-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-1 12H5V9h14v9z" />
+                                                <rect x="7" y="11" width="6" height="1.5" rx=".5" />
+                                                <rect x="7" y="13.5" width="4" height="1.5" rx=".5" />
+                                            </svg></span> Descrição</h4>
                                     <p>Curso para motoristas que transportam cargas indivisíveis e excedentes.
                                         Abrange sinalização, escolta, legislação de AET
                                         e procedimentos de segurança na via.</p>
                                 </div>
                                 <div class="detail-block">
-                                    <h4><span class="detail-icon">📌</span> Requisitos</h4>
+                                    <h4><span class="detail-icon"><svg viewBox="0 0 24 24">
+                                                <path
+                                                    d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm-1 2l5 5h-5V4zM6 20V4h5v7h7v9H6z" />
+                                                <rect x="8" y="13" width="8" height="1.2" />
+                                                <rect x="8" y="15.5" width="8" height="1.2" />
+                                                <rect x="8" y="10.5" width="5" height="1.2" />
+                                            </svg></span> Requisitos</h4>
                                     <ul>
                                         <li>CNH categoria C, D ou E</li>
                                         <li>Experiência em transporte de cargas</li>
@@ -710,7 +803,11 @@
                                     </ul>
                                 </div>
                                 <div class="detail-block">
-                                    <h4><span class="detail-icon">📄</span> Documentos Necessários</h4>
+                                    <h4><span class="detail-icon"><svg viewBox="0 0 24 24">
+                                                <path
+                                                    d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zM6 20V4h7v5h5v11H6z" />
+                                                <path d="M8 15.5h8v1.3H8zM8 12.8h8v1.3H8zM8 10h5v1.3H8z" />
+                                            </svg></span> Documentos Necessários</h4>
                                     <ul>
                                         <li>CNH original e cópia</li>
                                         <li>RG e CPF</li>
@@ -719,7 +816,11 @@
                                     </ul>
                                 </div>
                             </div>
-                            <a href="index.html#contato" class="btn-cta">📞 Quero me inscrever</a>
+                            <a href="index.html#contato" class="btn-cta"><svg viewBox="0 0 24 24" width="16" height="16"
+                                    style="fill: var(--color-primary); vertical-align: middle;">
+                                    <path
+                                        d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.46.57 3.58a1 1 0 01-.24 1.01l-2.21 2.2z" />
+                                </svg> Quero me inscrever</a>
                         </div>
                     </div>
                 </div>
@@ -745,20 +846,35 @@
                         <div class="accordion-body-inner">
                             <div class="accordion-detail-grid">
                                 <div class="detail-block">
-                                    <h4><span class="detail-icon">📋</span> Descrição</h4>
+                                    <h4><span class="detail-icon"><svg viewBox="0 0 24 24">
+                                                <path
+                                                    d="M20 6h-8l-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-1 12H5V9h14v9z" />
+                                                <rect x="7" y="11" width="6" height="1.5" rx=".5" />
+                                                <rect x="7" y="13.5" width="4" height="1.5" rx=".5" />
+                                            </svg></span> Descrição</h4>
                                     <p>Curso de direção defensiva com técnicas para prevenir acidentes,
                                         reconhecer situações de risco e adotar práticas seguras ao volante.
                                         Essencial para todos os motoristas profissionais.</p>
                                 </div>
                                 <div class="detail-block">
-                                    <h4><span class="detail-icon">📌</span> Requisitos</h4>
+                                    <h4><span class="detail-icon"><svg viewBox="0 0 24 24">
+                                                <path
+                                                    d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm-1 2l5 5h-5V4zM6 20V4h5v7h7v9H6z" />
+                                                <rect x="8" y="13" width="8" height="1.2" />
+                                                <rect x="8" y="15.5" width="8" height="1.2" />
+                                                <rect x="8" y="10.5" width="5" height="1.2" />
+                                            </svg></span> Requisitos</h4>
                                     <ul>
                                         <li>CNH de qualquer categoria</li>
                                         <li>Ser maior de 18 anos</li>
                                     </ul>
                                 </div>
                                 <div class="detail-block">
-                                    <h4><span class="detail-icon">📄</span> Documentos Necessários</h4>
+                                    <h4><span class="detail-icon"><svg viewBox="0 0 24 24">
+                                                <path
+                                                    d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zM6 20V4h7v5h5v11H6z" />
+                                                <path d="M8 15.5h8v1.3H8zM8 12.8h8v1.3H8zM8 10h5v1.3H8z" />
+                                            </svg></span> Documentos Necessários</h4>
                                     <ul>
                                         <li>CNH original e cópia</li>
                                         <li>RG e CPF</li>
@@ -766,7 +882,11 @@
                                     </ul>
                                 </div>
                             </div>
-                            <a href="index.html#contato" class="btn-cta">📞 Quero me inscrever</a>
+                            <a href="index.html#contato" class="btn-cta"><svg viewBox="0 0 24 24" width="16" height="16"
+                                    style="fill: var(--color-primary); vertical-align: middle;">
+                                    <path
+                                        d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.46.57 3.58a1 1 0 01-.24 1.01l-2.21 2.2z" />
+                                </svg> Quero me inscrever</a>
                         </div>
                     </div>
                 </div>
@@ -792,13 +912,24 @@
                         <div class="accordion-body-inner">
                             <div class="accordion-detail-grid">
                                 <div class="detail-block">
-                                    <h4><span class="detail-icon">📋</span> Descrição</h4>
+                                    <h4><span class="detail-icon"><svg viewBox="0 0 24 24">
+                                                <path
+                                                    d="M20 6h-8l-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-1 12H5V9h14v9z" />
+                                                <rect x="7" y="11" width="6" height="1.5" rx=".5" />
+                                                <rect x="7" y="13.5" width="4" height="1.5" rx=".5" />
+                                            </svg></span> Descrição</h4>
                                     <p>Curso de reciclagem para motoristas que necessitam atualizar
                                         seus conhecimentos conforme exigência do DETRAN.
                                         Conteúdo atualizado sobre legislação, direção defensiva e meio ambiente.</p>
                                 </div>
                                 <div class="detail-block">
-                                    <h4><span class="detail-icon">📌</span> Requisitos</h4>
+                                    <h4><span class="detail-icon"><svg viewBox="0 0 24 24">
+                                                <path
+                                                    d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm-1 2l5 5h-5V4zM6 20V4h5v7h7v9H6z" />
+                                                <rect x="8" y="13" width="8" height="1.2" />
+                                                <rect x="8" y="15.5" width="8" height="1.2" />
+                                                <rect x="8" y="10.5" width="5" height="1.2" />
+                                            </svg></span> Requisitos</h4>
                                     <ul>
                                         <li>CNH de qualquer categoria</li>
                                         <li>Necessidade de reciclagem conforme DETRAN</li>
@@ -808,7 +939,11 @@
                                     </div>
                                 </div>
                                 <div class="detail-block">
-                                    <h4><span class="detail-icon">📄</span> Documentos Necessários</h4>
+                                    <h4><span class="detail-icon"><svg viewBox="0 0 24 24">
+                                                <path
+                                                    d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zM6 20V4h7v5h5v11H6z" />
+                                                <path d="M8 15.5h8v1.3H8zM8 12.8h8v1.3H8zM8 10h5v1.3H8z" />
+                                            </svg></span> Documentos Necessários</h4>
                                     <ul>
                                         <li>CNH original e cópia</li>
                                         <li>RG e CPF</li>
@@ -817,7 +952,11 @@
                                     </ul>
                                 </div>
                             </div>
-                            <a href="index.html#contato" class="btn-cta">📞 Quero me inscrever</a>
+                            <a href="index.html#contato" class="btn-cta"><svg viewBox="0 0 24 24" width="16" height="16"
+                                    style="fill: var(--color-primary); vertical-align: middle;">
+                                    <path
+                                        d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.46.57 3.58a1 1 0 01-.24 1.01l-2.21 2.2z" />
+                                </svg> Quero me inscrever</a>
                         </div>
                     </div>
                 </div>
@@ -843,13 +982,24 @@
                         <div class="accordion-body-inner">
                             <div class="accordion-detail-grid">
                                 <div class="detail-block">
-                                    <h4><span class="detail-icon">📋</span> Descrição</h4>
+                                    <h4><span class="detail-icon"><svg viewBox="0 0 24 24">
+                                                <path
+                                                    d="M20 6h-8l-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-1 12H5V9h14v9z" />
+                                                <rect x="7" y="11" width="6" height="1.5" rx=".5" />
+                                                <rect x="7" y="13.5" width="4" height="1.5" rx=".5" />
+                                            </svg></span> Descrição</h4>
                                     <p>Curso de capacitação para profissionais de motofrete.
                                         Treinamento completo em legislação, segurança, pilotagem defensiva
                                         e boas práticas para entregadores e motoboys.</p>
                                 </div>
                                 <div class="detail-block">
-                                    <h4><span class="detail-icon">📌</span> Requisitos</h4>
+                                    <h4><span class="detail-icon"><svg viewBox="0 0 24 24">
+                                                <path
+                                                    d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm-1 2l5 5h-5V4zM6 20V4h5v7h7v9H6z" />
+                                                <rect x="8" y="13" width="8" height="1.2" />
+                                                <rect x="8" y="15.5" width="8" height="1.2" />
+                                                <rect x="8" y="10.5" width="5" height="1.2" />
+                                            </svg></span> Requisitos</h4>
                                     <ul>
                                         <li>CNH categoria A</li>
                                         <li><strong>Idade mínima de 21 anos</strong></li>
@@ -860,7 +1010,11 @@
                                     </div>
                                 </div>
                                 <div class="detail-block">
-                                    <h4><span class="detail-icon">📄</span> Documentos Necessários</h4>
+                                    <h4><span class="detail-icon"><svg viewBox="0 0 24 24">
+                                                <path
+                                                    d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zM6 20V4h7v5h5v11H6z" />
+                                                <path d="M8 15.5h8v1.3H8zM8 12.8h8v1.3H8zM8 10h5v1.3H8z" />
+                                            </svg></span> Documentos Necessários</h4>
                                     <ul>
                                         <li>CNH original e cópia (cat. A)</li>
                                         <li>RG e CPF</li>
@@ -869,7 +1023,11 @@
                                     </ul>
                                 </div>
                             </div>
-                            <a href="index.html#contato" class="btn-cta">📞 Quero me inscrever</a>
+                            <a href="index.html#contato" class="btn-cta"><svg viewBox="0 0 24 24" width="16" height="16"
+                                    style="fill: var(--color-primary); vertical-align: middle;">
+                                    <path
+                                        d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.46.57 3.58a1 1 0 01-.24 1.01l-2.21 2.2z" />
+                                </svg> Quero me inscrever</a>
                         </div>
                     </div>
                 </div>
@@ -895,7 +1053,12 @@
                         <div class="accordion-body-inner">
                             <div class="accordion-detail-grid">
                                 <div class="detail-block">
-                                    <h4><span class="detail-icon">📋</span> Descrição</h4>
+                                    <h4><span class="detail-icon"><svg viewBox="0 0 24 24">
+                                                <path
+                                                    d="M20 6h-8l-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-1 12H5V9h14v9z" />
+                                                <rect x="7" y="11" width="6" height="1.5" rx=".5" />
+                                                <rect x="7" y="13.5" width="4" height="1.5" rx=".5" />
+                                            </svg></span> Descrição</h4>
                                     <p>Cursos de Normas Regulamentadoras para segurança no trabalho:</p>
                                     <ul>
                                         <li><strong>NR 10</strong> — Segurança em instalações e serviços em eletricidade
@@ -906,7 +1069,13 @@
                                     </ul>
                                 </div>
                                 <div class="detail-block">
-                                    <h4><span class="detail-icon">📌</span> Requisitos</h4>
+                                    <h4><span class="detail-icon"><svg viewBox="0 0 24 24">
+                                                <path
+                                                    d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm-1 2l5 5h-5V4zM6 20V4h5v7h7v9H6z" />
+                                                <rect x="8" y="13" width="8" height="1.2" />
+                                                <rect x="8" y="15.5" width="8" height="1.2" />
+                                                <rect x="8" y="10.5" width="5" height="1.2" />
+                                            </svg></span> Requisitos</h4>
                                     <ul>
                                         <li>Ser maior de 18 anos</li>
                                         <li>Atestado de saúde ocupacional (ASO)</li>
@@ -914,7 +1083,11 @@
                                     </ul>
                                 </div>
                                 <div class="detail-block">
-                                    <h4><span class="detail-icon">📄</span> Documentos Necessários</h4>
+                                    <h4><span class="detail-icon"><svg viewBox="0 0 24 24">
+                                                <path
+                                                    d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zM6 20V4h7v5h5v11H6z" />
+                                                <path d="M8 15.5h8v1.3H8zM8 12.8h8v1.3H8zM8 10h5v1.3H8z" />
+                                            </svg></span> Documentos Necessários</h4>
                                     <ul>
                                         <li>RG e CPF</li>
                                         <li>Comprovante de residência</li>
@@ -923,7 +1096,11 @@
                                     </ul>
                                 </div>
                             </div>
-                            <a href="index.html#contato" class="btn-cta">📞 Quero me inscrever</a>
+                            <a href="index.html#contato" class="btn-cta"><svg viewBox="0 0 24 24" width="16" height="16"
+                                    style="fill: var(--color-primary); vertical-align: middle;">
+                                    <path
+                                        d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.46.57 3.58a1 1 0 01-.24 1.01l-2.21 2.2z" />
+                                </svg> Quero me inscrever</a>
                         </div>
                     </div>
                 </div>
