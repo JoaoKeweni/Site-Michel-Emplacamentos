@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Cursos especializados para motoristas e transportadores. MOPP, Coletivo de Passageiros, Transporte Escolar, Direção Defensiva e mais. Michel Emplacamentos.">
+    <meta name="keywords"
+        content="cursos para motoristas, MOPP, transporte escolar, direção defensiva, reciclagem CNH, motofrete, NR 10, NR 20, NR 35, Michel Emplacamentos">
+    <title>Cursos | Michel Emplacamentos</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="assets/images/logo.png">
+    <style>
+        /* === Courses Page Specific Styles === */
+        .courses-page-hero {
+            background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary) 50%, var(--color-primary-light) 100%);
+            padding: 160px 0 100px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .courses-page-hero::before {
+            content: '';
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            background: rgba(254, 250, 10, 0.06);
+            top: -200px;
+            right: -100px;
+        }
+
+        .courses-page-hero::after {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.04);
+            bottom: -150px;
+            left: -100px;
+        }
+
+        .courses-page-hero h1 {
+            font-family: var(--font-heading);
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--color-white);
+            margin-bottom: 16px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .courses-page-hero h1 .highlight {
+            color: var(--color-accent);
+        }
+
+        .courses-page-hero p {
+            font-size: 1.15rem;
+            color: rgba(255, 255, 255, 0.8);
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .courses-page-hero .breadcrumb {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 24px;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.6);
+            position: relative;
+            z-index: 1;
+        }
+
+        .courses-page-hero .breadcrumb a {
+            color: var(--color-accent);
+        }
+
+        .courses-page-hero .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        /* Courses Main Content */
+        .courses-page-content {
+            padding: 80px 0 100px;
+            background: var(--color-gray-50);
+        }
+
+        .courses-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 60px;
+        }
+
+        .courses-intro p {
+            color: var(--color-text-light);
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+
+        /* Course Cards Grid */
+        .courses-page-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+        }
+
+        .course-page-card {
+            background: var(--color-white);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: all var(--transition-normal);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .course-page-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .course-page-card-top {
+            background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
+            padding: 28px 28px 40px;
+            position: relative;
+        }
+
+        .course-page-card-top::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: 24px;
+            background: var(--color-white);
+            clip-path: ellipse(55% 100% at 50% 100%);
+        }
+
+        .course-page-card-icon {
+            width: 56px;
+            height: 56px;
+            background: rgba(254, 250, 10, 0.2);
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            margin-bottom: 16px;
+        }
+
+        .course-page-card-top h3 {
+            font-family: var(--font-heading);
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--color-white);
+            line-height: 1.3;
+        }
+
+        .course-page-card-body {
+            padding: 20px 28px 28px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .course-page-card-body p {
+            color: var(--color-text-light);
+            font-size: 0.93rem;
+            line-height: 1.7;
+            flex: 1;
+        }
+
+        .course-tag {
+            display: inline-block;
+            background: var(--color-gray-100);
+            color: var(--color-primary);
+            padding: 4px 12px;
+            border-radius: var(--radius-full);
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-top: 16px;
+            align-self: flex-start;
+        }
+
+        .course-tag.required {
+            background: rgba(254, 250, 10, 0.2);
+            color: var(--color-primary);
+        }
+
+        .course-tag.popular {
+            background: var(--color-accent);
+            color: var(--color-primary);
+        }
+
+        .course-page-card .btn {
+            margin-top: 20px;
+            width: 100%;
+            justify-content: center;
+            font-size: 0.93rem;
+            padding: 12px 24px;
+        }
+
+        /* Info Box */
+        .course-info-note {
+            font-size: 0.82rem !important;
+            background: var(--color-gray-50);
+            padding: 12px 14px;
+            border-radius: var(--radius-sm);
+            border-left: 3px solid var(--color-accent);
+            margin-top: 12px;
+            color: var(--color-text) !important;
+        }
+
+        /* CTA Section */
+        .courses-cta {
+            padding: 80px 0;
+            background: var(--color-white);
+            text-align: center;
+        }
+
+        .courses-cta h2 {
+            font-family: var(--font-heading);
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--color-primary);
+            margin-bottom: 16px;
+        }
+
+        .courses-cta p {
+            color: var(--color-text-light);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto 32px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        @media (max-width: 1024px) {
+            .courses-page-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .courses-page-hero {
+                padding: 130px 0 70px;
+            }
+
+            .courses-page-hero h1 {
+                font-size: 2rem;
+            }
+
+            .courses-page-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .courses-page-content {
+                padding: 60px 0 80px;
+            }
+
+            .courses-cta h2 {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ========== HEADER ========== -->
+    <header class="header scrolled" id="header">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="assets/images/logo.png" alt="Michel Emplacamentos Logo">
+                <div class="logo-text" style="color: var(--color-primary);">MICHEL<br><span>EMPLACAMENTOS</span></div>
+            </a>
+
+            <nav>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="index.html#sobre" class="nav-link">Sobre Nós</a></li>
+                    <li><a href="index.html#antt" class="nav-link">ANTT</a></li>
+                    <li><a href="index.html#servicos" class="nav-link">Serviços</a></li>
+                    <li><a href="index.html#aet" class="nav-link">AET</a></li>
+                    <li><a href="cursos.html" class="nav-link active">Cursos</a></li>
+                    <li><a href="index.html#contato" class="nav-link nav-cta">Contato</a></li>
+                </ul>
+            </nav>
+
+            <div class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- ========== HERO ========== -->
+    <section class="courses-page-hero">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="index.html">Home</a>
+                <span>›</span>
+                <span>Cursos</span>
+            </div>
+            <h1>Nossos <span class="highlight">Cursos</span></h1>
+            <p>Capacitação profissional para motoristas e transportadores.
+                Cursos com certificação oficial e instrutores qualificados.</p>
+        </div>
+    </section>
+
+    <!-- ========== COURSES LIST ========== -->
+    <section class="courses-page-content">
+        <div class="container">
+            <div class="courses-intro reveal">
+                <p>Oferecemos uma variedade de cursos especializados para motoristas profissionais,
+                    transportadores e despachantes. Todos os cursos contam com material didático atualizado
+                    e certificação reconhecida.</p>
+            </div>
+
+            <div class="courses-page-grid">
+
+                <!-- MOPP -->
+                <div class="course-page-card reveal">
+                    <div class="course-page-card-top">
+                        <div class="course-page-card-icon">☣️</div>
+                        <h3>Produtos Perigosos (MOPP)</h3>
+                    </div>
+                    <div class="course-page-card-body">
+                        <p>Curso obrigatório para motoristas que transportam produtos perigosos.
+                            Capacitação em manuseio, legislação, prevenção e procedimentos de emergência
+                            conforme exigência do CONTRAN.</p>
+                        <span class="course-tag popular">Mais Procurado</span>
+                        <a href="index.html#contato" class="btn btn-secondary">Quero me inscrever</a>
+                    </div>
+                </div>
+
+                <!-- Coletivo de Passageiros -->
+                <div class="course-page-card reveal">
+                    <div class="course-page-card-top">
+                        <div class="course-page-card-icon">🚌</div>
+                        <h3>Coletivo de Passageiros</h3>
+                    </div>
+                    <div class="course-page-card-body">
+                        <p>Habilitação para condução de veículos de transporte coletivo de passageiros.
+                            Abrange legislação de trânsito, direção defensiva, primeiros socorros
+                            e relacionamento interpessoal.</p>
+                        <a href="index.html#contato" class="btn btn-secondary">Quero me inscrever</a>
+                    </div>
+                </div>
+
+                <!-- Transporte Emergencial -->
+                <div class="course-page-card reveal">
+                    <div class="course-page-card-top">
+                        <div class="course-page-card-icon">🚑</div>
+                        <h3>Transporte Emergencial</h3>
+                    </div>
+                    <div class="course-page-card-body">
+                        <p>Curso para motoristas de veículos de emergência, como ambulâncias e viaturas.
+                            Treinamento em condução segura em situações de urgência, sinalização
+                            e legislação específica.</p>
+                        <a href="index.html#contato" class="btn btn-secondary">Quero me inscrever</a>
+                    </div>
+                </div>
+
+                <!-- Transporte Escolar -->
+                <div class="course-page-card reveal">
+                    <div class="course-page-card-top">
+                        <div class="course-page-card-icon">🚐</div>
+                        <h3>Transporte Escolar</h3>
+                    </div>
+                    <div class="course-page-card-body">
+                        <p>Capacitação obrigatória para motoristas de transporte escolar.
+                            Inclui legislação, segurança infantil, primeiros socorros
+                            e responsabilidade do condutor.</p>
+                        <a href="index.html#contato" class="btn btn-secondary">Quero me inscrever</a>
+                    </div>
+                </div>
+
+                <!-- Transporte Indivisíveis -->
+                <div class="course-page-card reveal">
+                    <div class="course-page-card-top">
+                        <div class="course-page-card-icon">🏗️</div>
+                        <h3>Transporte de Cargas Indivisíveis</h3>
+                    </div>
+                    <div class="course-page-card-body">
+                        <p>Curso para motoristas que transportam cargas indivisíveis e excedentes.
+                            Abrange sinalização, escolta, legislação de AET
+                            e procedimentos de segurança na via.</p>
+                        <a href="index.html#contato" class="btn btn-secondary">Quero me inscrever</a>
+                    </div>
+                </div>
+
+                <!-- Direção Defensiva -->
+                <div class="course-page-card reveal">
+                    <div class="course-page-card-top">
+                        <div class="course-page-card-icon">🛡️</div>
+                        <h3>Direção Defensiva</h3>
+                    </div>
+                    <div class="course-page-card-body">
+                        <p>Curso de direção defensiva com técnicas para prevenir acidentes,
+                            reconhecer situações de risco e adotar práticas seguras ao volante.
+                            Essencial para todos os motoristas.</p>
+                        <a href="index.html#contato" class="btn btn-secondary">Quero me inscrever</a>
+                    </div>
+                </div>
+
+                <!-- Reciclagem -->
+                <div class="course-page-card reveal">
+                    <div class="course-page-card-top">
+                        <div class="course-page-card-icon">🔄</div>
+                        <h3>Reciclagem</h3>
+                    </div>
+                    <div class="course-page-card-body">
+                        <p>Curso de reciclagem para motoristas que necessitam atualizar
+                            seus conhecimentos conforme exigência do DETRAN.
+                            Conteúdo completo e atualizado.</p>
+                        <div class="course-info-note">
+                            ⚠️ <strong>Obrigatório prova</strong> no DETRAN para conclusão do curso.
+                        </div>
+                        <span class="course-tag required">Prova Obrigatória</span>
+                        <a href="index.html#contato" class="btn btn-secondary">Quero me inscrever</a>
+                    </div>
+                </div>
+
+                <!-- Motofrete -->
+                <div class="course-page-card reveal">
+                    <div class="course-page-card-top">
+                        <div class="course-page-card-icon">🏍️</div>
+                        <h3>Motofrete</h3>
+                    </div>
+                    <div class="course-page-card-body">
+                        <p>Curso de capacitação para profissionais de motofrete.
+                            Treinamento completo em legislação, segurança e boas práticas
+                            para entregadores e motoboys.</p>
+                        <div class="course-info-note">
+                            ⚠️ Cliente precisa ter <strong>21 anos completos</strong> e estar habilitado há no mínimo
+                            <strong>2 anos</strong>.
+                            Obrigatório prova Detran.
+                        </div>
+                        <span class="course-tag required">Requisitos Especiais</span>
+                        <a href="index.html#contato" class="btn btn-secondary">Quero me inscrever</a>
+                    </div>
+                </div>
+
+                <!-- NRs -->
+                <div class="course-page-card reveal">
+                    <div class="course-page-card-top">
+                        <div class="course-page-card-icon">⚡</div>
+                        <h3>Cursos NRs 10, 20, 35</h3>
+                    </div>
+                    <div class="course-page-card-body">
+                        <p>Cursos de Normas Regulamentadoras para segurança no trabalho:</p>
+                        <div class="course-features" style="margin: 12px 0;">
+                            <div class="course-feature">
+                                <span class="check" style="color:var(--color-primary);font-weight:700;">✓</span>
+                                <strong>NR 10</strong> — Segurança em instalações elétricas
+                            </div>
+                            <div class="course-feature">
+                                <span class="check" style="color:var(--color-primary);font-weight:700;">✓</span>
+                                <strong>NR 20</strong> — Líquidos combustíveis e inflamáveis
+                            </div>
+                            <div class="course-feature">
+                                <span class="check" style="color:var(--color-primary);font-weight:700;">✓</span>
+                                <strong>NR 35</strong> — Trabalho em altura
+                            </div>
+                        </div>
+                        <a href="index.html#contato" class="btn btn-secondary">Quero me inscrever</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== CTA ========== -->
+    <section class="courses-cta">
+        <div class="container reveal">
+            <h2>Interessado em algum curso?</h2>
+            <p>Entre em contato conosco e tire suas dúvidas. Estamos prontos para ajudar
+                você a se capacitar profissionalmente!</p>
+            <div class="cta-buttons">
+                <a href="index.html#contato" class="btn btn-primary">📞 Fale Conosco</a>
+                <a href="index.html" class="btn btn-outline"
+                    style="border-color: var(--color-primary); color: var(--color-primary);">
+                    ← Voltar ao Site
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <img src="assets/images/logo.png" alt="Michel Emplacamentos" style="height: 40px;">
+                        <div class="logo-text">MICHEL<br><span>EMPLACAMENTOS</span></div>
+                    </div>
+                    <p>Soluções completas em emplacamento, ANTT, AET e serviços de despachante.
+                        Atendendo com confiança e agilidade.</p>
+                </div>
+
+                <div class="footer-nav">
+                    <h4>Navegação</h4>
+                    <div class="footer-links">
+                        <a href="index.html">Home</a>
+                        <a href="index.html#sobre">Sobre Nós</a>
+                        <a href="index.html#antt">ANTT</a>
+                        <a href="index.html#servicos">Serviços</a>
+                        <a href="index.html#aet">AET</a>
+                        <a href="cursos.html">Cursos</a>
+                        <a href="index.html#contato">Contato</a>
+                    </div>
+                </div>
+
+                <div class="footer-contact">
+                    <h4>Contato</h4>
+                    <div class="footer-links">
+                        <a href="#">📱 (00) 00000-0000</a>
+                        <a href="#">📧 contato@michelemplacamentos.com.br</a>
+                        <a href="#">📍 Seu Endereço — Cidade/UF</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Michel Emplacamentos. Todos os direitos reservados.</p>
+                <div class="footer-social">
+                    <a href="#" class="social-link" title="Instagram">📷</a>
+                    <a href="#" class="social-link" title="Facebook">📘</a>
+                    <a href="#" class="social-link" title="WhatsApp">💬</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ========== FLOATING ELEMENTS ========== -->
+    <a href="#" class="whatsapp-float" id="whatsappFloat" title="Fale pelo WhatsApp" target="_blank" rel="noopener">
+        💬
+    </a>
+
+    <button class="scroll-top" id="scrollTop" title="Voltar ao topo">
+        ↑
+    </button>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
