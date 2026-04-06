@@ -1090,6 +1090,10 @@ img {
     transform: translateX(4px);
 }
 
+.contact-item:hover .contact-icon svg {
+    fill: var(--color-white) !important;
+}
+
 .contact-icon {
     width: 48px;
     height: 48px;
