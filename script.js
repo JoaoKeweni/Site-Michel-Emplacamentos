@@ -132,15 +132,15 @@ document.addEventListener('DOMContentLoaded', () => {
   // === Form Submission ===
   if (formElement) {
     formElement.addEventListener('submit', (e) => {
-      e.preventDefault();
-
       // Basic validation
       const name = document.getElementById('name').value.trim();
       const email = document.getElementById('email').value.trim();
       const phone = document.getElementById('phone').value.trim();
+      const servico = document.getElementById('servico').value;
       const message = document.getElementById('message').value.trim();
 
-      if (!name || !email || !phone || !message) {
+      if (!name || !email || !phone || !message || !servico) {
+        e.preventDefault();
         alert('Por favor, preencha todos os campos obrigatórios.');
         return;
       }
@@ -148,43 +148,15 @@ document.addEventListener('DOMContentLoaded', () => {
       // Email validation
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (!emailRegex.test(email)) {
+        e.preventDefault();
         alert('Por favor, insira um e-mail válido.');
         return;
       }
 
-      // Submit form via FormSubmit AJAX API
+      // Submit form natively (allow browser to POST to FormSubmit.co)
       const submitBtn = formElement.querySelector('button[type="submit"]');
-      const originalBtnContent = submitBtn.innerHTML;
       submitBtn.innerHTML = 'Enviando...';
-      submitBtn.disabled = true;
-
-      fetch("https://formsubmit.co/ajax/emplacamentosmichel@gmail.com", {
-        method: "POST",
-        body: new FormData(formElement)
-      })
-        .then(response => response.json())
-        .then(data => {
-          if (data.success === "true" || data.success) {
-            formElement.style.display = 'none';
-            formSuccess.classList.add('show');
-
-            // Reset after 5 seconds
-            setTimeout(() => {
-              formElement.style.display = '';
-              formElement.reset();
-              formSuccess.classList.remove('show');
-              submitBtn.innerHTML = originalBtnContent;
-              submitBtn.disabled = false;
-            }, 5000);
-          } else {
-            throw new Error("Erro no FormSubmit");
-          }
-        })
-        .catch(error => {
-          alert("Ocorreu um erro ao enviar sua mensagem. Tente novamente mais tarde.");
-          submitBtn.innerHTML = originalBtnContent;
-          submitBtn.disabled = false;
-        });
+      // Do not disable button instantly to allow form submission to complete naturally
     });
   }
 
