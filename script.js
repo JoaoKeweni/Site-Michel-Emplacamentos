@@ -152,24 +152,39 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
-      // Simulate form submission
+      // Submit form via FormSubmit AJAX API
       const submitBtn = formElement.querySelector('button[type="submit"]');
-      submitBtn.textContent = 'Enviando...';
+      const originalBtnContent = submitBtn.innerHTML;
+      submitBtn.innerHTML = 'Enviando...';
       submitBtn.disabled = true;
 
-      setTimeout(() => {
-        formElement.style.display = 'none';
-        formSuccess.classList.add('show');
+      fetch("https://formsubmit.co/ajax/emplacamentosmichel@gmail.com", {
+        method: "POST",
+        body: new FormData(formElement)
+      })
+        .then(response => response.json())
+        .then(data => {
+          if (data.success === "true" || data.success) {
+            formElement.style.display = 'none';
+            formSuccess.classList.add('show');
 
-        // Reset after 5 seconds
-        setTimeout(() => {
-          formElement.style.display = '';
-          formElement.reset();
-          formSuccess.classList.remove('show');
-          submitBtn.textContent = 'Enviar Mensagem <svg viewBox="0 0 24 24" width="1em" height="1em" style="fill: currentColor; vertical-align: middle;"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>';
+            // Reset after 5 seconds
+            setTimeout(() => {
+              formElement.style.display = '';
+              formElement.reset();
+              formSuccess.classList.remove('show');
+              submitBtn.innerHTML = originalBtnContent;
+              submitBtn.disabled = false;
+            }, 5000);
+          } else {
+            throw new Error("Erro no FormSubmit");
+          }
+        })
+        .catch(error => {
+          alert("Ocorreu um erro ao enviar sua mensagem. Tente novamente mais tarde.");
+          submitBtn.innerHTML = originalBtnContent;
           submitBtn.disabled = false;
-        }, 5000);
-      }, 1500);
+        });
     });
   }
 
