@@ -2,21 +2,22 @@
 
 ## Informações Gerais
 - **Nome:** Michel Emplacamentos
-- **Tipo:** Site Institucional
+- **Tipo:** Site Institucional (Single-Page Application)
 - **Público-alvo:** Despachantes que querem vender ANTT e cursos em seus escritórios; pessoas interessadas em serviços gerais de despachante.
-- **Tecnologias:** HTML, CSS, JavaScript (vanilla)
+- **Tecnologias Base:** HTML5 Semântico, CSS3 (Vanilla), JavaScript Vanilla (ES6+).
+- **Metodologia de Desenvolvimento:** Pair programming com Inteligência Artificial, modelo ágil e desenvolvimento iterativo.
 
 ---
 
 ## Paleta de Cores
-| Cor       | Hex       | Uso Principal                        |
-|-----------|-----------|--------------------------------------|
-| Azul      | `#1e3c8a` | Cor principal (headers, CTAs, links)  |
-| Amarelo   | `#fefa0a` | Destaques, botões, hover, acentos    |
-| Branco    | `#ffffff` | Backgrounds, textos sobre fundo escuro |
-| Azul escuro | `#142a5e` | Gradientes, footer, estados hover   |
-| Cinza claro | `#f5f5f5` | Backgrounds de seções alternadas    |
-| Cinza texto | `#333333` | Texto principal do corpo            |
+| Cor          | Hex       | Uso Principal                        |
+|--------------|-----------|--------------------------------------|
+| Azul         | `#1e3c8a` | Cor principal (headers, CTAs, links) |
+| Amarelo      | `#fefa0a` | Destaques, botões, hover, acentos    |
+| Branco       | `#ffffff` | Backgrounds, textos sobre fundo escuro, SVGs no Hover |
+| Azul escuro  | `#142a5e` | Gradientes, footer, estados hover    |
+| Cinza claro  | `#f5f5f5` | Backgrounds de seções alternadas     |
+| Cinza texto  | `#333333` | Texto principal do corpo             |
 
 ---
 
@@ -27,72 +28,39 @@
 ---
 
 ## Estrutura de Páginas (Navegação)
-O site será **single-page** com navegação por âncoras (scroll suave), dividido nas seguintes seções:
+Rolagem suave (Smooth Scroll) por âncoras com cabeçalho fixo (glassmorphism dinâmico).
 
 ### 1. Home (Hero)
-- Banner principal com chamada de ação forte
-- Texto: "Michel Emplacamentos — Soluções completas em emplacamento e despachante"
-- Botão CTA: "Fale Conosco" ou "Conheça nossos serviços"
-- Background com gradiente azul + elemento visual
+- Banner com gradiente azul e overlay visual.
+- Chamada principal focada em agilidade e segurança veicular.
 
 ### 2. Sobre Nós
-- Breve história e missão da empresa
-- Valores: confiança, agilidade, transparência
-- Foto/ícone institucional
+- **Componente Dinâmico (Slider Automático):** Exibição de 5 imagens principais da corporação (`foto-michel.jpg`, `foto-equipe.jpg`, `foto-fachada.jpg`, `foto-sistema.jpg`, `foto-emplacamento.jpg`) em um carrossel flexível. A transição ocorre nativamente via JS a cada 4s, com suporte a marcadores clicáveis (Dots).
 
-### 3. ANTT
-- Explicação do serviço de ANTT
-- Tipos de registro (RNTRC, TAC, ETC)
-- Benefícios de contratar o serviço
-- CTA para contato
+### 3. ANTT e 4. Serviços Gerais
+- Descrição de RNTRC, TAC, ETC e demais serviços de regularização veicular e CNH.
+- Cards/Grids com ícones SVGs monocromáticos padronizados que herdam a cor do texto e se tornam brancos ao passar o mouse.
 
-### 4. Serviços Gerais
-- Lista de serviços de despachante:
-  - Emplacamento de veículos
-  - Transferência de propriedade
-  - Licenciamento
-  - 2ª via de documentos
-  - Outros serviços
-- Cards ou grid com ícones
+### 5. AET e 6. Cursos
+- Cursos e despachante parceiro. (Layout em Accordion expansível em `cursos.html`).
 
-### 5. AET (Autorização Especial de Trânsito)
-- O que é AET
-- Para quem é destinado
-- Processo e documentação necessária
-- CTA para contato
-
-### 6. Cursos
-- Cursos oferecidos (ex: capacitação para despachantes)
-- Grade/lista de cursos
-- Informações sobre certificação
-- CTA para inscrição/contato
-- **Importante:** voltado para despachantes parceiros
-
-### 7. Contato
-- Formulário de contato (Nome, E-mail, Telefone, Mensagem)
-- WhatsApp com link direto
-- Endereço / Mapa (Google Maps embed)
-- Redes sociais
+### 7. Contato e Envio de Documentações
+- **Integração Backend (FormSubmit):** Todos os envios do formulário de contato são empacotados via `FormData` e submetidos via AJAX (`fetch`) diretamente para a API `https://formsubmit.co/ajax/emplacamentosmichel@gmail.com`.
+- **Anexos (*Em Andamento*):** O formulário (`enctype="multipart/form-data"`) está preparado estruturalmente para permitir ao cliente fazer upload de PDFs ou imagens.
+- Feedback em tela assíncrono: Animação de `Enviando...` sem recarregamento da página (Single Page Experience) seguido de painel de Sucesso.
 
 ---
 
-## Imagens Necessárias
-| Imagem               | Descrição                                    |
-|----------------------|----------------------------------------------|
-| `logo.png`           | Logo da empresa (azul e amarelo)             |
-| `hero-bg.png`        | Background do banner hero                     |
-| `antt-icon.png`      | Ícone/ilustração para seção ANTT             |
-| `aet-icon.png`       | Ícone/ilustração para seção AET              |
-| `services-icon.png`  | Ícone/ilustração para serviços gerais        |
-| `courses-icon.png`   | Ícone/ilustração para seção cursos           |
+## Padrão Visual e Ícones (Crucial para IA)
+- **Sem Emojis Nativos:** Todos os emojis no sistema (telefone, checagens, alvos e marcadores) foram substituídos por **Ícones Vetoriais SVG (Material UI style)** usando atributos nativos `width="1em" height="1em" style="fill: currentColor; vertical-align: middle;"`. 
+- Isso garante que a coloração do ícone obedeça completamente as regras do CSS da classe contêiner.
+- **Hover States:** Na interação (ex: `.value-item:hover` ou `.service-card:hover`), os ícones SVG efetuam um `fill: var(--color-white) !important` para contrastar com os *backgrounds* azuis gerados sob demanda.
+- **Micro-animações (IntersectionObserver):** Classes assíncronas de revelação (`.reveal`, `.reveal-left`, `.reveal-right`) expõem o DOM à medida que a janela avança. O botão do Whatsapp (`.whatsapp-float`) utiliza a animação `@keyframes pulse`.
 
 ---
 
-## Estilo Visual
-- **Design moderno e profissional**, transmitindo confiança
-- Uso de **gradientes** com as cores da paleta
-- **Glassmorphism** sutil em cards e elementos flutuantes
-- **Micro-animações** em hover e scroll (fade-in, slide-up)
-- **Responsivo** (mobile-first)
-- **Ícones** com estilo flat/minimalista
-- Header fixo com efeito de blur ao rolar
+## Arquivos Estruturais
+- `index.html`: Página base.
+- `cursos.html`: Sub-página independente.
+- `styles.css`: Único arquivo de estilos concentrando CSS Variables e responsividade estrita (*Mobile-first rules at the bottom*).
+- `script.js`: Lógica do IntersectionObserver, Máscara de Telefone, FormSubmit AJAX e Carrossel de Imagens (Sobre Nós).
