@@ -239,6 +239,55 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // === Company Slider ===
+  const sliderTrack = document.getElementById('sliderTrack');
+  const sliderDotsContainer = document.getElementById('sliderDots');
+
+  if (sliderTrack && sliderDotsContainer) {
+    const slides = sliderTrack.querySelectorAll('img');
+    const slideCount = slides.length;
+    let currentSlide = 0;
+
+    // Create dots
+    for (let i = 0; i < slideCount; i++) {
+      const dot = document.createElement('div');
+      dot.classList.add('slider-dot');
+      if (i === 0) dot.classList.add('active');
+
+      dot.addEventListener('click', () => {
+        goToSlide(i);
+        resetAutoSlide(); // Reset auto-slide timer when manually clicked
+      });
+      sliderDotsContainer.appendChild(dot);
+    }
+
+    const dots = document.querySelectorAll('.slider-dot');
+
+    function goToSlide(index) {
+      currentSlide = index;
+      sliderTrack.style.transform = `translateX(-${currentSlide * 100}%)`;
+      dots.forEach(d => d.classList.remove('active'));
+      if (dots[currentSlide]) dots[currentSlide].classList.add('active');
+    }
+
+    // Auto slide
+    let autoSlideInterval;
+
+    function startAutoSlide() {
+      autoSlideInterval = setInterval(() => {
+        let nextSlide = (currentSlide + 1) % slideCount;
+        goToSlide(nextSlide);
+      }, 4000);
+    }
+
+    function resetAutoSlide() {
+      clearInterval(autoSlideInterval);
+      startAutoSlide();
+    }
+
+    startAutoSlide();
+  }
+
   // === Initialize ===
   handleScroll();
 });

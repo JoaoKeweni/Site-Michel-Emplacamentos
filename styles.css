@@ -538,6 +538,43 @@ img {
     object-fit: cover;
 }
 
+/* Company Slider */
+.slider-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    height: 100%;
+}
+
+.slider-track img {
+    width: 100%;
+    flex-shrink: 0;
+    height: 400px;
+    object-fit: cover;
+}
+
+.slider-dots {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+    z-index: 10;
+}
+
+.slider-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: background var(--transition-fast);
+}
+
+.slider-dot.active {
+    background: var(--color-accent);
+}
+
 .about-experience-badge {
     position: absolute;
     bottom: -20px;
@@ -600,6 +637,10 @@ img {
 .value-item:hover {
     background: var(--color-gray-100);
     transform: translateX(4px);
+}
+
+.value-item:hover .value-icon svg {
+    fill: var(--color-white) !important;
 }
 
 .value-icon {
@@ -788,6 +829,10 @@ img {
 .service-card:hover .service-icon {
     background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
     transform: scale(1.1);
+}
+
+.service-card:hover .service-icon svg {
+    fill: var(--color-white) !important;
 }
 
 .service-card h4 {
