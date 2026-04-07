@@ -17,23 +17,27 @@
             color: #fff;
             text-align: center;
         }
+
         .antt-page-header h1 {
             font-size: 2.5rem;
             margin-bottom: 15px;
             font-family: var(--font-heading);
             font-weight: 700;
         }
+
         .antt-page-header p {
-            color: rgba(255,255,255,0.8);
+            color: rgba(255, 255, 255, 0.8);
             max-width: 600px;
             margin: 0 auto;
         }
+
         .form-radio-group {
             display: flex;
             gap: 24px;
             margin-top: 10px;
             margin-bottom: 20px;
         }
+
         .form-radio-group label {
             display: flex;
             align-items: center;
@@ -43,6 +47,7 @@
             cursor: pointer;
             color: var(--color-text);
         }
+
         .form-radio-group input[type="radio"] {
             width: 18px;
             height: 18px;
@@ -92,16 +97,20 @@
     <!-- ========== FORMULÁRIO ========== -->
     <section class="contact" style="padding-top: 60px;">
         <div class="container">
-            <div class="contact-form" style="max-width: 700px; margin: 0 auto; box-shadow: 0 10px 40px rgba(0,0,0,0.08);">
-                <form id="anttForm" name="solicitacao_antt" action="/" method="POST" enctype="multipart/form-data" data-netlify="true">
+            <div class="contact-form"
+                style="max-width: 700px; margin: 0 auto; box-shadow: 0 10px 40px rgba(0,0,0,0.08);">
+                <form id="anttForm" name="solicitacao_antt" action="/" method="POST" enctype="multipart/form-data"
+                    data-netlify="true">
                     <!-- Identificador para o Netlify Forms -->
                     <input type="hidden" name="form-name" value="solicitacao_antt">
-                    
+
                     <div class="form-group">
                         <label style="font-weight: 600; color: var(--color-primary);">Tipo de Pessoa</label>
                         <div class="form-radio-group">
-                            <label><input type="radio" name="tipo_pessoa" value="Física" checked onchange="toggleDocFields()"> Pessoa Física</label>
-                            <label><input type="radio" name="tipo_pessoa" value="Jurídica" onchange="toggleDocFields()"> Pessoa Jurídica</label>
+                            <label><input type="radio" name="tipo_pessoa" value="Física" checked
+                                    onchange="toggleDocFields()"> Pessoa Física</label>
+                            <label><input type="radio" name="tipo_pessoa" value="Jurídica" onchange="toggleDocFields()">
+                                Pessoa Jurídica</label>
                         </div>
                     </div>
 
@@ -113,6 +122,7 @@
                             <option value="Inclusão">Inclusão</option>
                             <option value="Revalidação">Revalidação</option>
                             <option value="Mudança para Mercosul">Mudança para Mercosul</option>
+                            <option value="Consulta/Outro">Consulta/Outro</option>
                         </select>
                     </div>
 
@@ -123,7 +133,8 @@
                         </div>
                         <div class="form-group">
                             <label for="telefone">Telefone</label>
-                            <input type="tel" id="telefone" class="phone-input-mask" name="telefone" placeholder="(00) 00000-0000" required>
+                            <input type="tel" id="telefone" class="phone-input-mask" name="telefone"
+                                placeholder="(00) 00000-0000" required>
                         </div>
                     </div>
 
@@ -134,39 +145,55 @@
 
                     <div class="form-group">
                         <label for="documento_cnh">CNH proprietário</label>
-                        <input type="file" id="documento_cnh" name="documento_cnh" accept=".pdf, .jpg, .png, .jpeg" required>
+                        <input type="file" id="documento_cnh" name="documento_cnh" accept=".pdf, .jpg, .png, .jpeg"
+                            required>
                     </div>
 
                     <div class="form-group">
                         <label for="documento_crlve">CRLVe do automotor</label>
-                        <input type="file" id="documento_crlve" name="documento_crlve" accept=".pdf, .jpg, .png, .jpeg" required>
+                        <input type="file" id="documento_crlve" name="documento_crlve" accept=".pdf, .jpg, .png, .jpeg"
+                            required>
                     </div>
 
                     <div class="form-group">
                         <label for="documento_endereco">Endereço (Comprovante)</label>
-                        <input type="file" id="documento_endereco" name="documento_endereco" accept=".pdf, .jpg, .png, .jpeg" required>
+                        <input type="file" id="documento_endereco" name="documento_endereco"
+                            accept=".pdf, .jpg, .png, .jpeg" required>
                     </div>
 
-                    <div class="form-group" id="container_contrato" style="display: none; background: rgba(0, 51, 102, 0.03); padding: 15px; border-radius: 8px; border: 1px dashed var(--color-primary);">
-                        <label for="documento_contrato">Contrato Social <span style="color: var(--color-accent); font-size: 0.85rem;">(Obrigatório PJ)</span></label>
-                        <input type="file" id="documento_contrato" name="documento_contrato" accept=".pdf, .jpg, .png, .jpeg">
+                    <div class="form-group" id="container_contrato"
+                        style="display: none; background: rgba(0, 51, 102, 0.03); padding: 15px; border-radius: 8px; border: 1px dashed var(--color-primary);">
+                        <label for="documento_contrato">Contrato Social <span
+                                style="color: var(--color-accent); font-size: 0.85rem;">(Obrigatório PJ)</span></label>
+                        <input type="file" id="documento_contrato" name="documento_contrato"
+                            accept=".pdf, .jpg, .png, .jpeg">
                     </div>
 
                     <div class="form-group" style="margin-top: 20px;">
-                        <label for="observacoes">Observações / Mensagem <span style="font-weight: normal; color: #888;">(Opcional)</span></label>
-                        <textarea id="observacoes" name="mensagem" placeholder="Digite aqui detalhes adicionais" rows="3"></textarea>
+                        <label for="observacoes">Observações / Mensagem <span
+                                style="font-weight: normal; color: #888;">(Opcional)</span></label>
+                        <textarea id="observacoes" name="mensagem" placeholder="Digite aqui detalhes adicionais"
+                            rows="3"></textarea>
                     </div>
 
                     <button type="submit" class="btn btn-primary btn-submit" style="width: 100%;">
-                        Enviar Solicitação de Serviço <svg viewBox="0 0 24 24" width="1em" height="1em" style="fill: currentColor; vertical-align: middle; margin-left: 8px;"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+                        Enviar Solicitação de Serviço <svg viewBox="0 0 24 24" width="1em" height="1em"
+                            style="fill: currentColor; vertical-align: middle; margin-left: 8px;">
+                            <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" />
+                        </svg>
                     </button>
                 </form>
 
                 <div class="form-success" id="anttSuccessMsg" style="display: none;">
-                    <div class="success-icon"><svg viewBox="0 0 24 24" width="1em" height="1em" style="fill: #4caf50; vertical-align: middle;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg></div>
+                    <div class="success-icon"><svg viewBox="0 0 24 24" width="1em" height="1em"
+                            style="fill: #4caf50; vertical-align: middle;">
+                            <path
+                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+                        </svg></div>
                     <h3>Recebemos sua Solicitação!</h3>
                     <p>Sua documentação foi enviada ao nosso sistema. Entraremos em contato em breve.</p>
-                    <a href="index.html" class="btn btn-outline" style="margin-top: 20px; display: inline-block;">Voltar ao Início</a>
+                    <a href="index.html" class="btn btn-outline" style="margin-top: 20px; display: inline-block;">Voltar
+                        ao Início</a>
                 </div>
             </div>
         </div>
@@ -181,7 +208,8 @@
                         <img src="assets/images/logo.png" alt="Michel Emplacamentos" style="height: 40px;">
                         <div class="logo-text">MICHEL<br><span>EMPLACAMENTOS</span></div>
                     </div>
-                    <p>Soluções completas em emplacamento, ANTT, AET e serviços de despachante. Atendendo com confiança e agilidade.</p>
+                    <p>Soluções completas em emplacamento, ANTT, AET e serviços de despachante. Atendendo com confiança
+                        e agilidade.</p>
                 </div>
                 <div class="footer-nav">
                     <h4>Navegação</h4>
@@ -214,7 +242,7 @@
             const isPj = document.querySelector('input[name="tipo_pessoa"][value="Jurídica"]').checked;
             const containerContrato = document.getElementById('container_contrato');
             const inputContrato = document.getElementById('documento_contrato');
-            
+
             if (isPj) {
                 containerContrato.style.display = 'block';
                 inputContrato.setAttribute('required', 'required');
@@ -250,7 +278,7 @@
             if (anttForm) {
                 anttForm.addEventListener('submit', (e) => {
                     e.preventDefault();
-                    
+
                     const submitBtn = anttForm.querySelector('button[type="submit"]');
                     const originalText = submitBtn.innerHTML;
                     submitBtn.innerHTML = 'Enviando documentos...';
@@ -260,24 +288,25 @@
                         method: 'POST',
                         body: new FormData(anttForm)
                     })
-                    .then(response => {
-                        if (response.ok) {
-                            anttForm.style.display = 'none';
-                            successMsg.style.display = 'block';
-                            successMsg.classList.add('show');
-                        } else {
-                            throw new Error('Erro na requisição');
-                        }
-                    })
-                    .catch(error => {
-                        alert('Ocorreu um erro ao enviar os documentos. Tente novamente.');
-                        submitBtn.innerHTML = originalText;
-                        submitBtn.disabled = false;
-                    });
+                        .then(response => {
+                            if (response.ok) {
+                                anttForm.style.display = 'none';
+                                successMsg.style.display = 'block';
+                                successMsg.classList.add('show');
+                            } else {
+                                throw new Error('Erro na requisição');
+                            }
+                        })
+                        .catch(error => {
+                            alert('Ocorreu um erro ao enviar os documentos. Tente novamente.');
+                            submitBtn.innerHTML = originalText;
+                            submitBtn.disabled = false;
+                        });
                 });
             }
         });
     </script>
     <script src="script.js"></script>
 </body>
+
 </html>
