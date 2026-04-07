@@ -165,6 +165,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
       fetch(formElement.action, {
         method: 'POST',
+        headers: {
+          'Accept': 'application/json'
+        },
         body: formData
       })
         .then(response => {
