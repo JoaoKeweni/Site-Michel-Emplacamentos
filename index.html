@@ -487,12 +487,10 @@
                 </div>
 
                 <div class="contact-form reveal-right" id="contactForm">
-                    <form id="formElement" action="https://formsubmit.co/ajax/joaokeweni51@gmail.com" method="POST"
-                        enctype="multipart/form-data">
-                        <!-- Advanced FormSubmit Options -->
-                        <input type="hidden" name="_captcha" value="false">
-                        <input type="hidden" name="_template" value="table">
-                        <input type="hidden" name="_subject" value="Novo Pedido de Serviço/Contato - Site">
+                    <form id="formElement" name="contato" action="/" method="POST"
+                        enctype="multipart/form-data" data-netlify="true">
+                        <!-- Identificador para o Netlify Forms -->
+                        <input type="hidden" name="form-name" value="contato">
 
                         <div class="form-row">
                             <div class="form-group">
