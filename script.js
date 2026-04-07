@@ -153,10 +153,36 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
-      // Submit form natively (allow browser to POST to FormSubmit.co)
+      e.preventDefault();
+
+      // Envio via AJAX (FormSubmit) para não recarregar a página
       const submitBtn = formElement.querySelector('button[type="submit"]');
+      const originalText = submitBtn.innerHTML;
       submitBtn.innerHTML = 'Enviando...';
-      // Do not disable button instantly to allow form submission to complete naturally
+      submitBtn.disabled = true;
+
+      const formData = new FormData(formElement);
+
+      fetch(formElement.action, {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json'
+        },
+        body: formData
+      })
+        .then(response => {
+          if (response.ok) {
+            formElement.style.display = 'none';
+            if (formSuccess) formSuccess.classList.add('show');
+          } else {
+            throw new Error('Erro ao enviar o formulário.');
+          }
+        })
+        .catch(error => {
+          alert('Ocorreu um erro ao enviar a mensagem. Por favor, tente novamente.');
+          submitBtn.innerHTML = originalText;
+          submitBtn.disabled = false;
+        });
     });
   }
 
