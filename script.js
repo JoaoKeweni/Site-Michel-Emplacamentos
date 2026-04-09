@@ -163,11 +163,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const formData = new FormData(formElement);
 
-      fetch(formElement.action, {
+      fetch('/', {
         method: 'POST',
-        headers: {
-          'Accept': 'application/json'
-        },
         body: formData
       })
         .then(response => {
