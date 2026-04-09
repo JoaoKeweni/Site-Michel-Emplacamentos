@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Michel Emplacamentos - Solicitação de Serviços ANTT. Envie seus documentos com segurança.">
+    <title>Solicitar Serviço ANTT | Michel Emplacamentos</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="assets/images/logo.png">
+    <style>
+        .antt-page-header {
+            padding-top: 140px;
+            padding-bottom: 60px;
+            background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary) 100%);
+            color: #fff;
+            text-align: center;
+        }
+
+        .antt-page-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            font-family: var(--font-heading);
+            font-weight: 700;
+        }
+
+        .antt-page-header p {
+            color: rgba(255, 255, 255, 0.8);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-radio-group {
+            display: flex;
+            gap: 24px;
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
+
+        .form-radio-group label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 500;
+            font-size: 1rem;
+            cursor: pointer;
+            color: var(--color-text);
+        }
+
+        .form-radio-group input[type="radio"] {
+            width: 18px;
+            height: 18px;
+            accent-color: var(--color-accent);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ========== HEADER ========== -->
+    <header class="header scrolled" id="header" style="background: var(--color-primary);">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="assets/images/logo.png" alt="Michel Emplacamentos Logo">
+                <div class="logo-text">MICHEL<br><span>EMPLACAMENTOS</span></div>
+            </a>
+
+            <nav>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="index.html#home" class="nav-link">Home</a></li>
+                    <li><a href="index.html#sobre" class="nav-link">Sobre Nós</a></li>
+                    <li><a href="index.html#antt" class="nav-link active">ANTT</a></li>
+                    <li><a href="index.html#servicos" class="nav-link">Serviços</a></li>
+                    <li><a href="index.html#aet" class="nav-link">AET</a></li>
+                    <li><a href="cursos.html" class="nav-link">Cursos</a></li>
+                    <li><a href="index.html#contato" class="nav-link nav-cta">Contato</a></li>
+                </ul>
+            </nav>
+
+            <div class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- ========== HEADER SECUNDÁRIO ========== -->
+    <section class="antt-page-header">
+        <div class="container">
+            <h1>Serviços ANTT</h1>
+            <p>Preencha os dados abaixo e anexe os documentos necessários para darmos início ao seu processo.</p>
+        </div>
+    </section>
+
+    <!-- ========== FORMULÁRIO ========== -->
+    <section class="contact" style="padding-top: 60px;">
+        <div class="container">
+            <div class="contact-form"
+                style="max-width: 700px; margin: 0 auto; box-shadow: 0 10px 40px rgba(0,0,0,0.08);">
+                <form id="anttForm" name="solicitacao_antt" action="/" method="POST" enctype="multipart/form-data"
+                    data-netlify="true">
+                    <!-- Identificador para o Netlify Forms -->
+                    <input type="hidden" name="form-name" value="solicitacao_antt">
+
+                    <div class="form-group">
+                        <label style="font-weight: 600; color: var(--color-primary);">Tipo de Pessoa</label>
+                        <div class="form-radio-group">
+                            <label><input type="radio" name="tipo_pessoa" value="Física" checked
+                                    onchange="toggleDocFields()"> Pessoa Física</label>
+                            <label><input type="radio" name="tipo_pessoa" value="Jurídica" onchange="toggleDocFields()">
+                                Pessoa Jurídica</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="servico_antt">Serviço desejado</label>
+                        <select id="servico_antt" name="servico_desejado" required>
+                            <option value="" disabled selected>Selecione o tipo de serviço...</option>
+                            <option value="Cadastro">Cadastro</option>
+                            <option value="Inclusão">Inclusão</option>
+                            <option value="Revalidação">Revalidação</option>
+                            <option value="Mudança para Mercosul">Mudança para Mercosul</option>
+                            <option value="Consulta/Outro">Consulta/Outro</option>
+                        </select>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="nome">Nome completo / Razão Social</label>
+                            <input type="text" id="nome" name="nome" placeholder="Digite o nome" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="telefone">Telefone</label>
+                            <input type="tel" id="telefone" class="phone-input-mask" name="telefone"
+                                placeholder="(00) 00000-0000" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">E-mail</label>
+                        <input type="email" id="email" name="email" placeholder="seu@email.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="documento_cnh">CNH proprietário</label>
+                        <input type="file" id="documento_cnh" name="documento_cnh" accept=".pdf, .jpg, .png, .jpeg"
+                            required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="documento_crlve">CRLVe do automotor</label>
+                        <input type="file" id="documento_crlve" name="documento_crlve" accept=".pdf, .jpg, .png, .jpeg"
+                            required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="documento_endereco">Endereço (Comprovante)</label>
+                        <input type="file" id="documento_endereco" name="documento_endereco"
+                            accept=".pdf, .jpg, .png, .jpeg" required>
+                    </div>
+
+                    <div class="form-group" id="container_contrato"
+                        style="display: none; background: rgba(0, 51, 102, 0.03); padding: 15px; border-radius: 8px; border: 1px dashed var(--color-primary);">
+                        <label for="documento_contrato">Contrato Social <span
+                                style="color: var(--color-accent); font-size: 0.85rem;">(Obrigatório PJ)</span></label>
+                        <input type="file" id="documento_contrato" name="documento_contrato"
+                            accept=".pdf, .jpg, .png, .jpeg">
+                    </div>
+
+                    <div class="form-group" style="margin-top: 20px;">
+                        <label for="observacoes">Observações / Mensagem <span
+                                style="font-weight: normal; color: #888;">(Opcional)</span></label>
+                        <textarea id="observacoes" name="mensagem" placeholder="Digite aqui detalhes adicionais"
+                            rows="3"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-submit" style="width: 100%;">
+                        Enviar Solicitação de Serviço <svg viewBox="0 0 24 24" width="1em" height="1em"
+                            style="fill: currentColor; vertical-align: middle; margin-left: 8px;">
+                            <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" />
+                        </svg>
+                    </button>
+                </form>
+
+                <div class="form-success" id="anttSuccessMsg" style="display: none;">
+                    <div class="success-icon"><svg viewBox="0 0 24 24" width="1em" height="1em"
+                            style="fill: #4caf50; vertical-align: middle;">
+                            <path
+                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+                        </svg></div>
+                    <h3>Recebemos sua Solicitação!</h3>
+                    <p>Sua documentação foi enviada ao nosso sistema. Entraremos em contato em breve.</p>
+                    <a href="index.html" class="btn btn-outline" style="margin-top: 20px; display: inline-block;">Voltar
+                        ao Início</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <img src="assets/images/logo.png" alt="Michel Emplacamentos" style="height: 40px;">
+                        <div class="logo-text">MICHEL<br><span>EMPLACAMENTOS</span></div>
+                    </div>
+                    <p>Soluções completas em emplacamento, ANTT, AET e serviços de despachante. Atendendo com confiança
+                        e agilidade.</p>
+                </div>
+                <div class="footer-nav">
+                    <h4>Navegação</h4>
+                    <div class="footer-links">
+                        <a href="index.html#home">Home</a>
+                        <a href="index.html#sobre">Sobre Nós</a>
+                        <a href="index.html#antt">ANTT</a>
+                        <a href="index.html#servicos">Serviços</a>
+                        <a href="index.html#aet">AET</a>
+                    </div>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contato</h4>
+                    <div class="footer-links">
+                        <a href="#">(79) 99812-8089</a>
+                        <a href="#">michelemplacamentos@gmail.com</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Michel Emplacamentos. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ========== SCRIPTS ESPECÍFICOS DA PÁGINA ========== -->
+    <script>
+        // Lógica de exibir Contrato Social
+        function toggleDocFields() {
+            const isPj = document.querySelector('input[name="tipo_pessoa"][value="Jurídica"]').checked;
+            const containerContrato = document.getElementById('container_contrato');
+            const inputContrato = document.getElementById('documento_contrato');
+
+            if (isPj) {
+                containerContrato.style.display = 'block';
+                inputContrato.setAttribute('required', 'required');
+            } else {
+                containerContrato.style.display = 'none';
+                inputContrato.removeAttribute('required');
+                inputContrato.value = ''; // limpa o arquivo
+            }
+        }
+
+        // Lógica de envio AJAX com Netlify Forms
+        document.addEventListener('DOMContentLoaded', () => {
+            const anttForm = document.getElementById('anttForm');
+            const successMsg = document.getElementById('anttSuccessMsg');
+            const phoneInput = document.getElementById('telefone');
+
+            // Mascara de telefone
+            if (phoneInput) {
+                phoneInput.addEventListener('input', (e) => {
+                    let value = e.target.value.replace(/\D/g, '');
+                    if (value.length > 11) value = value.slice(0, 11);
+                    if (value.length > 6) {
+                        value = `(${value.slice(0, 2)}) ${value.slice(2, 7)}-${value.slice(7)}`;
+                    } else if (value.length > 2) {
+                        value = `(${value.slice(0, 2)}) ${value.slice(2)}`;
+                    } else if (value.length > 0) {
+                        value = `(${value}`;
+                    }
+                    e.target.value = value;
+                });
+            }
+
+            if (anttForm) {
+                anttForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+
+                    const submitBtn = anttForm.querySelector('button[type="submit"]');
+                    const originalText = submitBtn.innerHTML;
+                    submitBtn.innerHTML = 'Enviando documentos...';
+                    submitBtn.disabled = true;
+
+                    fetch('/', {
+                        method: 'POST',
+                        body: new FormData(anttForm)
+                    })
+                        .then(response => {
+                            if (response.ok) {
+                                anttForm.style.display = 'none';
+                                successMsg.style.display = 'block';
+                                successMsg.classList.add('show');
+                            } else {
+                                throw new Error('Erro na requisição');
+                            }
+                        })
+                        .catch(error => {
+                            alert('Ocorreu um erro ao enviar os documentos. Tente novamente.');
+                            submitBtn.innerHTML = originalText;
+                            submitBtn.disabled = false;
+                        });
+                });
+            }
+        });
+    </script>
+    <script src="script.js"></script>
+</body>
+
+</html>
