@@ -1,5 +1,8 @@
 # Michel Emplacamentos
 
+-Acesse o site: https://michelemplacamentos.com.br
+🟢Status: Em produção, no ar e totalmente funcional.
+
 Site institucional desenvolvido em HTML, CSS Vanilla e JS para a empresa Michel Emplacamentos, com foco em soluções completas de despachante, emplacamento, ANTT, AET e cursos profissionalizantes.
 
 > **Nota:** Este projeto foi desenvolvido e aperfeiçoado com o auxílio de ferramentas avançadas de Inteligência Artificial para alavancar a produtividade, iterando conforme fundamentos do modelo ágil e de *pair programming*.
